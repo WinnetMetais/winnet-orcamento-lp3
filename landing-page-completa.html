@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winnet Metais | Lixeiras e Utilitários em Inox Premium para Hotéis, Condomínios e Resorts</title>
+    <meta name="description" content="Soluções premium em aço inox para hotéis, condomínios e resorts. Lixeiras, coletores seletivos e utilitários de alta qualidade com design sofisticado. Durabilidade e elegância para ambientes corporativos.">
+    <meta name="keywords" content="lixeiras inox, lixeiras hotéis, lixeiras condomínios, lixeiras resorts, coleta seletiva inox, utilitários inox, equipamentos hotelaria, mobiliário corporativo inox">
+    <meta name="author" content="Winnet Metais">
+    <link rel="canonical" href="https://www.winnetmetais.com.br">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Winnet Metais | Lixeiras Premium em Inox para Hotéis e Condomínios">
+    <meta property="og:description" content="Soluções premium em aço inox para hotéis, condomínios e resorts. Alta qualidade, design sofisticado e durabilidade incomparável.">
+    <meta property="og:image" content="https://www.winnetmetais.com.br/og-image.jpg">
+    <meta property="og:url" content="https://www.winnetmetais.com.br">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Winnet Metais | Lixeiras Premium em Inox para Hotéis">
+    <meta name="twitter:description" content="Soluções premium em aço inox para ambientes corporativos sofisticados.">
+    <meta name="twitter:image" content="https://www.winnetmetais.com.br/og-image.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Winnet Metais",
+      "url": "https://www.winnetmetais.com.br",
+      "logo": "https://www.winnetmetais.com.br/logo.png",
+      "description": "Fabricante de lixeiras e utilitários premium em aço inox para hotéis, condomínios e resorts",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-11-97879-1851",
+        "contactType": "sales",
+        "availableLanguage": "Portuguese"
+      }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors */
+            --primary: hsl(213, 78%, 35%);
+            --primary-hover: hsl(213, 78%, 45%);
+            --accent: hsl(38, 92%, 50%);
+            --background: hsl(0, 0%, 100%);
+            --foreground: hsl(220, 15%, 15%);
+            --muted: hsl(210, 11%, 96%);
+            --muted-foreground: hsl(220, 10%, 45%);
+            --border: hsl(210, 11%, 88%);
+            
+            /* Shadows */
+            --shadow-soft: 0 2px 8px hsla(220, 15%, 15%, 0.08);
+            --shadow-medium: 0 8px 24px hsla(220, 15%, 15%, 0.12);
+            --shadow-strong: 0 16px 48px hsla(220, 15%, 15%, 0.16);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background: var(--background);
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, hsl(213, 78%, 25%) 0%, hsl(213, 78%, 45%) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 40px;
+            width: 288px;
+            height: 288px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(96px);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 80px;
+            right: 40px;
+            width: 384px;
+            height: 384px;
+            background: hsla(38, 92%, 50%, 0.1);
+            border-radius: 50%;
+            filter: blur(96px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .hero .text-gradient {
+            background: linear-gradient(135deg, var(--accent) 0%, hsl(45, 100%, 60%) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--foreground);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .trust-indicators {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 0.6s ease-out 0.6s both;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .trust-item i {
+            color: var(--accent);
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 5rem 0;
+            background: var(--background);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--muted-foreground);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.5rem;
+            height: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, rgba(213, 78%, 35%, 0.1) 0%, rgba(38, 92%, 50%, 0.1) 100%);
+            border-radius: 1rem;
+            color: var(--primary);
+            font-size: 1.75rem;
+        }
+
+        .feature-card:hover .feature-icon {
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s;
+        }
+
+        .feature-card:hover h3 {
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--muted-foreground);
+            line-height: 1.6;
+        }
+
+        /* PRODUCTS SECTION */
+        .products {
+            padding: 5rem 0;
+            background: var(--muted);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .product-image {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(210, 11%, 85%, 0.3) 0%, rgba(210, 11%, 85%, 0.1) 100%);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary);
+            background: rgba(213, 78%, 35%, 0.1);
+            border: 1px solid rgba(213, 78%, 35%, 0.2);
+            border-radius: 9999px;
+        }
+
+        .product-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .product-card:hover h3 {
+            color: var(--primary);
+        }
+
+        .product-description {
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .product-tag {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary);
+            background: rgba(213, 78%, 35%, 0.1);
+            border-radius: 9999px;
+        }
+
+        /* CTA SECTION */
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, hsl(213, 78%, 25%) 0%, hsl(213, 78%, 45%) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before,
+        .cta::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(96px);
+            opacity: 0.1;
+        }
+
+        .cta::before {
+            top: 40px;
+            right: 40px;
+            width: 384px;
+            height: 384px;
+            background: white;
+        }
+
+        .cta::after {
+            bottom: 40px;
+            left: 40px;
+            width: 288px;
+            height: 288px;
+            background: var(--accent);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover {
+            color: var(--accent);
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 3rem 0;
+            background: var(--foreground);
+            color: var(--background);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3,
+        .footer h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer h3 {
+            color: var(--accent);
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--foreground);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* WHATSAPP BUTTON */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 9999;
+            width: 4rem;
+            height: 4rem;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: var(--shadow-strong);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: bounce 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            background: #20bd5a;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-sparkles"></i>
+                    <span>Referência em Soluções Premium de Aço Inox</span>
+                </div>
+
+                <h1>
+                    Elegância e Durabilidade
+                    <span class="text-gradient">que Transformam</span>
+                    Seu Ambiente
+                </h1>
+
+                <p>
+                    Soluções premium em aço inox para <strong>hotéis</strong>, <strong>condomínios</strong> e <strong>resorts</strong> que elevam o padrão de sofisticação do seu espaço.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5511978791851?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20da%20Landing%20Page%20Premium%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20meu%20hotel/condom%C3%ADnio/resort." target="_blank" class="btn btn-primary">
+                        Solicitar Orçamento
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#produtos" class="btn btn-outline">
+                        Ver Produtos
+                    </a>
+                </div>
+
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Garantia de Qualidade</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-award"></i>
+                        <span>+15 Anos de Experiência</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-sparkles"></i>
+                        <span>Produtos Personalizáveis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    Por que Escolher a
+                    <span class="text-gradient">Winnet Metais?</span>
+                </h2>
+                <p>Excelência em cada detalhe, do projeto à entrega. Soluções que elevam o padrão do seu negócio.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Aço Inox de Alta Qualidade</h3>
+                    <p>Utilizamos exclusivamente aço inox 304 e 316, garantindo máxima resistência à corrosão e durabilidade superior.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sparkles"></i>
+                    </div>
+                    <h3>Design Sofisticado</h3>
+                    <p>Produtos com acabamento premium que agregam elegância e modernidade aos ambientes mais exigentes.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Logística eficiente com prazos reduzidos. Atendemos todo o território nacional com agilidade.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Garantia Estendida</h3>
+                    <p>Confiança comprovada com garantia estendida. Mais de 15 anos atendendo os clientes mais exigentes do mercado.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Personalização Completa</h3>
+                    <p>Desenvolvemos projetos sob medida com dimensões, acabamentos e funcionalidades customizadas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustentabilidade</h3>
+                    <p>Produtos 100% recicláveis que contribuem para a certificação ambiental do seu empreendimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="produtos" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    Soluções Completas em
+                    <span class="text-gradient">Aço Inox</span>
+                </h2>
+                <p>Cada produto é projetado para aliar sofisticação, durabilidade e funcionalidade aos ambientes mais exigentes.</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=500" alt="Lixeira Cilíndrica Premium">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Lixeiras de Lobby</span>
+                        <h3>Lixeira Cilíndrica Premium</h3>
+                        <p class="product-description">Design elegante e discreto, perfeito para áreas de circulação de alto padrão. Acabamento em aço inox escovado com alta resistência.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Inox 304</span>
+                            <span class="product-tag">Design Premium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500" alt="Coletor Cilíndrico">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Coletores para Corredores</span>
+                        <h3>Coletor Cilíndrico Corporativo</h3>
+                        <p class="product-description">Solução sofisticada para corredores e áreas de trânsito. Tampa basculante de fácil uso e manutenção simplificada.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Fácil Manutenção</span>
+                            <span class="product-tag">Design Moderno</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500" alt="Lixeira Hospitalar">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Linha Hospitalar</span>
+                        <h3>Lixeira Hospitalar com Pedal</h3>
+                        <p class="product-description">Acionamento por pedal para máxima higiene. Ideal para ambientes que exigem alto padrão de limpeza e assepsia.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Pedal Higiênico</span>
+                            <span class="product-tag">Inox Hospitalar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=500" alt="Cavalete de Sinalização">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Sinalização e Segurança</span>
+                        <h3>Cavalete de Sinalização</h3>
+                        <p class="product-description">Cavalete dobrável em aço inox com sinalização bilíngue. Essencial para manutenção da segurança em áreas de limpeza.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Bilíngue</span>
+                            <span class="product-tag">Dobrável</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=500" alt="Porta Guarda-Chuvas">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Acessórios de Entrada</span>
+                        <h3>Porta Guarda-Chuvas Premium</h3>
+                        <p class="product-description">Design sofisticado com sistema de drenagem integrado. Perfeito para entradas principais de hotéis e condomínios.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Drenagem Integrada</span>
+                            <span class="product-tag">Design Exclusivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1574643156929-51fa098b0394?w=500" alt="Coletor com Rodízios">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Linha Móvel</span>
+                        <h3>Coletor Hospitalar com Rodízios</h3>
+                        <p class="product-description">Mobilidade e higiene em um único produto. Rodízios de alta qualidade e alças ergonômicas para transporte eficiente.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Rodízios 360°</span>
+                            <span class="product-tag">Grande Capacidade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>
+                    Pronto para Elevar o Padrão
+                    <span class="text-gradient">do Seu Empreendimento?</span>
+                </h2>
+                <p>
+                    Fale com nossos especialistas e descubra como nossas soluções premium em aço inox podem transformar seus ambientes.
+                </p>
+
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5511978791851?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20personalizado%20para%20meu%20hotel/condom%C3%ADnio/resort.%20Vim%20atrav%C3%A9s%20da%20Landing%20Page%20Premium." target="_blank" class="btn btn-primary">
+                        <i class="fas fa-phone"></i>
+                        Falar com Especialista
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="mailto:contato@winnetmetais.com.br" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i>
+                        Enviar E-mail
+                    </a>
+                </div>
+
+                <div class="contact-info">
+                    <a href="tel:+5511978791851" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+55 (11) 97879-1851</span>
+                    </a>
+                    <a href="mailto:contato@winnetmetais.com.br" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contato@winnetmetais.com.br</span>
+                    </a>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>São Paulo - SP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Winnet Metais</h3>
+                    <p>Referência em soluções premium de aço inox para hotéis, condomínios e resorts. Qualidade e sofisticação desde 2008.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Produtos</h4>
+                    <ul>
+                        <li><a href="#produtos">Lixeiras Premium</a></li>
+                        <li><a href="#produtos">Coleta Seletiva</a></li>
+                        <li><a href="#produtos">Utilitários de Inox</a></li>
+                        <li><a href="#produtos">Linha Hospitalar</a></li>
+                        <li><a href="#produtos">Produtos Personalizados</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Segmentos</h4>
+                    <ul>
+                        <li><a href="#">Hotéis e Resorts</a></li>
+                        <li><a href="#">Condomínios</a></li>
+                        <li><a href="#">Hospitais e Clínicas</a></li>
+                        <li><a href="#">Escritórios Corporativos</a></li>
+                        <li><a href="#">Construção Civil</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+5511978791851">+55 (11) 97879-1851</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contato@winnetmetais.com.br">contato@winnetmetais.com.br</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>São Paulo - SP<br>Brasil</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Winnet Metais. Todos os direitos reservados.</p>
+                <div>
+                    <a href="#">Política de Privacidade</a> | 
+                    <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/5511978791851?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos%20Winnet.%20Vim%20atrav%C3%A9s%20da%20Landing%20Page%20Premium." target="_blank" class="whatsapp-button" aria-label="Falar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
