@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
-import lixeiraHotelLobby from "@/assets/lixeira-hotel-lobby.png";
+import lixeiraElevador from "@/assets/lixeira-elevador.png";
 import lixeiraRecepcao from "@/assets/lixeira-recepcao.png";
 import guardaChuvaInox from "@/assets/guarda-chuva-inox.png";
 import lixeiraHotelCorredor from "@/assets/lixeira-hotel-corredor.png";
@@ -23,8 +23,8 @@ const Hero = () => {
 
   const featuredProducts = [
     {
-      name: "Lixeira Premium Lobby",
-      image: lixeiraHotelLobby,
+      name: "Lixeira Basculante Quadrada",
+      image: lixeiraElevador,
       tag: "Mais Vendida"
     },
     {
