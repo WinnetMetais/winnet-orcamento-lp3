@@ -13,6 +13,9 @@ import bituqueiraExterna from "@/assets/bituqueira-externa.png";
 import lixeiraHospitalRodizio from "@/assets/lixeira-hospital-rodizio.png";
 import lixeiraCozinha from "@/assets/lixeira-cozinha.png";
 import lixeiraRecepcao from "@/assets/lixeira-recepcao.png";
+import ensacadorGuardaChuvas from "@/assets/ensacador-guarda-chuvas.png";
+import portaExtintorLobby from "@/assets/porta-extintor-lobby.png";
+import lixeiraBanheiroResort from "@/assets/lixeira-banheiro-resort.png";
 
 interface Product {
   id: number;
@@ -45,12 +48,12 @@ const products: Product[] = [
   },
   {
     id: 3,
-    name: "Lixeira com Pedal",
-    category: "Linha Hospitalar",
-    description: "Acionamento por pedal para máxima higiene. Fabricada em aço inox 430 com acabamento em aço polido. Ideal para ambientes que exigem alto padrão de limpeza e assepsia.",
-    image: lixeiraClinicaHospital,
-    tags: ["Aço Inox 430", "Aço Polido", "Pedal Higiênico"],
-    ideal: ["Clínicas", "Hospitais", "Consultórios"]
+    name: "Lixeira com Pedal para Banheiros",
+    category: "Linha Resorts",
+    description: "Design elegante e discreto para banheiros de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido. Tampa com acionamento suave e silencioso.",
+    image: lixeiraBanheiroResort,
+    tags: ["Aço Inox 430", "Aço Polido", "Design Elegante"],
+    ideal: ["Resorts", "Hotéis", "Spas"]
   },
   {
     id: 4,
@@ -69,6 +72,24 @@ const products: Product[] = [
     image: guardaChuvaInox,
     tags: ["Drenagem Integrada", "Design Exclusivo", "Grande Capacidade"],
     ideal: ["Entradas Principais", "Portarias", "Recepções"]
+  },
+  {
+    id: 11,
+    name: "Ensacador de Guarda-Chuvas",
+    category: "Acessórios de Entrada",
+    description: "Solução prática e higiênica para dias chuvosos. Sistema completo com dispenser de 150 saquinhos plásticos. Mantém o ambiente limpo e protegido da umidade.",
+    image: ensacadorGuardaChuvas,
+    tags: ["Inclui 150 Saquinhos", "Sistema Automático", "Higiênico"],
+    ideal: ["Entradas de Hotéis", "Resorts", "Recepções Premium"]
+  },
+  {
+    id: 12,
+    name: "Porta Extintor Premium",
+    category: "Lixeiras de Lobby",
+    description: "Dupla funcionalidade com design sofisticado em aço inox polido. Suporte para extintor e cesto para descarte, mantendo a elegância do ambiente.",
+    image: portaExtintorLobby,
+    tags: ["Aço Inox Polido", "Dupla Função", "Design Premium"],
+    ideal: ["Lobbies", "Halls Corporativos", "Áreas Nobres"]
   },
   {
     id: 6,
@@ -121,7 +142,7 @@ const ProductGallery = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [filter, setFilter] = useState<string>("all");
 
-  const categories = ["all", "Lixeiras de Lobby", "Linha Hospitalar", "Acessórios de Entrada", "Linha Móvel"];
+  const categories = ["all", "Lixeiras de Lobby", "Linha Resorts", "Acessórios de Entrada", "Linha Móvel"];
   
   const filteredProducts = filter === "all" 
     ? products 
