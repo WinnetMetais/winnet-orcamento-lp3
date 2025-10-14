@@ -48,7 +48,7 @@ const products: Product[] = [
   },
   {
     id: 3,
-    name: "Lixeira com Pedal para Banheiros",
+    name: "Lixeira com Tampa para Banheiros",
     category: "Linha Resorts",
     description: "Design elegante e discreto para banheiros de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido. Tampa com acionamento suave e silencioso.",
     image: lixeiraBanheiroResort,
