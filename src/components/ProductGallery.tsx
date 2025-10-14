@@ -85,7 +85,7 @@ const products: Product[] = [
   {
     id: 12,
     name: "Porta Extintor Premium",
-    category: "Lixeiras de Lobby",
+    category: "Utilitários de Lobby e Corredor",
     description: "Dupla funcionalidade com design sofisticado em aço inox polido. Suporte para extintor e cesto para descarte, mantendo a elegância do ambiente.",
     image: portaExtintorLobby,
     tags: ["Aço Inox Polido", "Dupla Função", "Design Premium"],
@@ -142,7 +142,7 @@ const ProductGallery = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [filter, setFilter] = useState<string>("all");
 
-  const categories = ["all", "Lixeiras de Lobby", "Linha Resorts", "Acessórios de Entrada", "Linha Móvel"];
+  const categories = ["all", "Lixeiras de Lobby", "Linha Resorts", "Acessórios de Entrada", "Utilitários de Lobby e Corredor", "Linha Móvel"];
   
   const filteredProducts = filter === "all" 
     ? products 
