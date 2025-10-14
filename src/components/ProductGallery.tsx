@@ -30,27 +30,27 @@ const products: Product[] = [
     id: 1,
     name: "Lixeira Cilíndrica Premium",
     category: "Lixeiras de Lobby",
-    description: "Design elegante e discreto, perfeito para áreas de circulação de alto padrão. Acabamento em aço inox escovado com alta resistência.",
+    description: "Design elegante e discreto, perfeito para áreas de circulação de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido de alta resistência.",
     image: lixeiraHotelLobby,
-    tags: ["Inox 304", "Design Premium", "Alta Durabilidade"],
+    tags: ["Aço Inox 430", "Aço Polido", "Alta Durabilidade"],
     ideal: ["Lobbies de Hotéis", "Recepções", "Áreas Comuns"]
   },
   {
     id: 2,
     name: "Coletor Cilíndrico Corporativo",
     category: "Coletores para Corredores",
-    description: "Solução sofisticada para corredores e áreas de trânsito. Tampa basculante de fácil uso e manutenção simplificada.",
+    description: "Solução sofisticada para corredores e áreas de trânsito. Fabricada em aço inox 430 com acabamento em aço polido. Tampa basculante de fácil uso e manutenção simplificada.",
     image: lixeiraHotelCorredor,
-    tags: ["Fácil Manutenção", "Design Moderno", "Tampa Basculante"],
+    tags: ["Aço Inox 430", "Aço Polido", "Tampa Basculante"],
     ideal: ["Corredores", "Áreas de Serviço", "Halls"]
   },
   {
     id: 3,
     name: "Lixeira Hospitalar com Pedal",
     category: "Linha Hospitalar",
-    description: "Acionamento por pedal para máxima higiene. Ideal para ambientes que exigem alto padrão de limpeza e assepsia.",
+    description: "Acionamento por pedal para máxima higiene. Fabricada em aço inox 430 com acabamento em aço polido. Ideal para ambientes que exigem alto padrão de limpeza e assepsia.",
     image: lixeiraClinicaHospital,
-    tags: ["Pedal Higiênico", "Inox Hospitalar", "Fácil Higienização"],
+    tags: ["Aço Inox 430", "Aço Polido", "Pedal Higiênico"],
     ideal: ["Clínicas", "Hospitais", "Consultórios"]
   },
   {
@@ -84,36 +84,36 @@ const products: Product[] = [
     id: 7,
     name: "Coletor Hospitalar com Rodízios",
     category: "Linha Móvel",
-    description: "Mobilidade e higiene em um único produto. Rodízios de alta qualidade e alças ergonômicas para transporte eficiente.",
+    description: "Mobilidade e higiene em um único produto. Fabricada em aço inox 430 com acabamento em aço polido. Rodízios de alta qualidade e alças ergonômicas para transporte eficiente.",
     image: lixeiraHospitalRodizio,
-    tags: ["Rodízios 360°", "Alças Reforçadas", "Grande Capacidade"],
+    tags: ["Aço Inox 430", "Aço Polido", "Rodízios 360°"],
     ideal: ["Hospitais", "Clínicas", "Centros Médicos"]
   },
   {
     id: 8,
     name: "Lixeira de Pedal para Cozinhas",
     category: "Linha Gastronômica",
-    description: "Design compacto com pedal silencioso. Ideal para cozinhas profissionais que prezam por higiene e praticidade.",
+    description: "Design compacto com pedal silencioso. Fabricada em aço inox 430 com acabamento em aço polido. Ideal para cozinhas profissionais que prezam por higiene e praticidade.",
     image: lixeiraCozinha,
-    tags: ["Pedal Silencioso", "Inox 304", "Compacta"],
+    tags: ["Aço Inox 430", "Aço Polido", "Pedal Silencioso"],
     ideal: ["Cozinhas", "Refeitórios", "Áreas de Serviço"]
   },
   {
     id: 9,
     name: "Lixeira Basculante Quadrada",
     category: "Elevadores e Espaços Compactos",
-    description: "Design quadrado que otimiza espaços. Tampa basculante discreta, perfeita para elevadores e áreas reduzidas.",
+    description: "Design quadrado que otimiza espaços. Fabricada em aço inox 430 com acabamento em aço polido. Tampa basculante discreta, perfeita para elevadores e áreas reduzidas.",
     image: lixeiraElevador,
-    tags: ["Design Compacto", "Tampa Discreta", "Inox Escovado"],
+    tags: ["Aço Inox 430", "Aço Polido", "Design Compacto"],
     ideal: ["Elevadores", "Halls", "Corredores Estreitos"]
   },
   {
     id: 10,
     name: "Lixeira Premium para Recepção",
     category: "Linha Executiva",
-    description: "Elegância e funcionalidade para sua recepção. Tampa com fechamento suave e acabamento premium.",
+    description: "Elegância e funcionalidade para sua recepção. Fabricada em aço inox 430 com acabamento em aço polido premium. Tampa com fechamento suave.",
     image: lixeiraRecepcao,
-    tags: ["Fechamento Suave", "Acabamento Premium", "Design Executivo"],
+    tags: ["Aço Inox 430", "Aço Polido", "Fechamento Suave"],
     ideal: ["Recepções", "Salas VIP", "Áreas Executivas"]
   }
 ];
