@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Eye, X } from "lucide-react";
 
-import lixeiraHotelLobby from "@/assets/lixeira-hotel-lobby.png";
+import lixeiraElevador from "@/assets/lixeira-elevador.png";
 import lixeiraHotelCorredor from "@/assets/lixeira-hotel-corredor.png";
 import lixeiraClinicaHospital from "@/assets/lixeira-clinica-hospital.png";
 import placaPisoMolhado from "@/assets/placa-piso-molhado.png";
@@ -12,7 +12,6 @@ import guardaChuvaInox from "@/assets/guarda-chuva-inox.png";
 import bituqueiraExterna from "@/assets/bituqueira-externa.png";
 import lixeiraHospitalRodizio from "@/assets/lixeira-hospital-rodizio.png";
 import lixeiraCozinha from "@/assets/lixeira-cozinha.png";
-import lixeiraElevador from "@/assets/lixeira-elevador.png";
 import lixeiraRecepcao from "@/assets/lixeira-recepcao.png";
 
 interface Product {
@@ -28,10 +27,10 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    name: "Lixeira Cilíndrica Premium",
+    name: "Lixeira Basculante Quadrada",
     category: "Lixeiras de Lobby",
-    description: "Design elegante e discreto, perfeito para áreas de circulação de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido de alta resistência.",
-    image: lixeiraHotelLobby,
+    description: "Design quadrado elegante e discreto, perfeito para áreas de circulação de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido de alta resistência.",
+    image: lixeiraElevador,
     tags: ["Aço Inox 430", "Aço Polido", "Alta Durabilidade"],
     ideal: ["Lobbies de Hotéis", "Recepções", "Áreas Comuns"]
   },
