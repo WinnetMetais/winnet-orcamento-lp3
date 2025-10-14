@@ -16,6 +16,7 @@ import lixeiraRecepcao from "@/assets/lixeira-recepcao.png";
 import ensacadorGuardaChuvas from "@/assets/ensacador-guarda-chuvas.png";
 import portaExtintorLobby from "@/assets/porta-extintor-lobby.png";
 import lixeiraBanheiroResort from "@/assets/lixeira-banheiro-resort.png";
+import lixeiraBasculanteRedonda from "@/assets/lixeira-basculante-redonda.png";
 
 interface Product {
   id: number;
@@ -30,10 +31,10 @@ interface Product {
 const products: Product[] = [
   {
     id: 1,
-    name: "Lixeira Basculante Quadrada",
+    name: "Lixeira Basculante Redonda",
     category: "Lixeiras de Lobby",
-    description: "Design quadrado elegante e discreto, perfeito para áreas de circulação de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido de alta resistência.",
-    image: lixeiraElevador,
+    description: "Design redondo elegante e discreto, perfeito para áreas de circulação de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido de alta resistência.",
+    image: lixeiraBasculanteRedonda,
     tags: ["Aço Inox 430", "Aço Polido", "Alta Durabilidade"],
     ideal: ["Lobbies de Hotéis", "Recepções", "Áreas Comuns"]
   },
