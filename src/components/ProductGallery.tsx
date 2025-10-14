@@ -45,7 +45,7 @@ const products: Product[] = [
   },
   {
     id: 3,
-    name: "Lixeira Hospitalar com Pedal",
+    name: "Lixeira com Pedal",
     category: "Linha Hospitalar",
     description: "Acionamento por pedal para máxima higiene. Fabricada em aço inox 430 com acabamento em aço polido. Ideal para ambientes que exigem alto padrão de limpeza e assepsia.",
     image: lixeiraClinicaHospital,
@@ -81,7 +81,7 @@ const products: Product[] = [
   },
   {
     id: 7,
-    name: "Coletor Hospitalar com Rodízios",
+    name: "Coletor com Rodízios",
     category: "Linha Móvel",
     description: "Mobilidade e higiene em um único produto. Fabricada em aço inox 430 com acabamento em aço polido. Rodízios de alta qualidade e alças ergonômicas para transporte eficiente.",
     image: lixeiraHospitalRodizio,
