@@ -5,7 +5,7 @@ const WhatsAppButton = () => {
   const whatsappMessage = encodeURIComponent(
     "Olá! Gostaria de mais informações sobre os produtos Winnet. Vim através da Landing Page Premium."
   );
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=5511978791851&text=${whatsappMessage}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=5511959105205&text=${whatsappMessage}`;
 
   return (
     <Button

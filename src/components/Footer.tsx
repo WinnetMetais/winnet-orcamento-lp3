@@ -56,14 +56,14 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-background/80">
               <li className="flex items-start gap-2">
                 <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <a href="tel:+5511978791851" className="hover:text-accent transition-colors">
-                  +55 (11) 97879-1851
+                <a href="tel:+5511959105205" className="hover:text-accent transition-colors">
+                  +55 (11) 95910-5205
                 </a>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <a href="mailto:contato@winnetmetais.com.br" className="hover:text-accent transition-colors">
-                  contato@winnetmetais.com.br
+                <a href="mailto:comercial@winnetmetais.com.br" className="hover:text-accent transition-colors">
+                  comercial@winnetmetais.com.br
                 </a>
               </li>
               <li className="flex items-start gap-2">

@@ -148,9 +148,9 @@ const products: Product[] = [
     id: 13,
     name: "Lixeira com Pedal para Banheiro",
     category: "Linha Resorts",
-    description: "Lixeira cilíndrica com pedal, acabamento espelhado em aço inox 304, perfeita para banheiros sofisticados de hotéis e resorts.",
+    description: "Lixeira cilíndrica com pedal, acabamento espelhado em aço inox 430, perfeita para banheiros sofisticados de hotéis e resorts.",
     image: lixeiraPedalBanheiro,
-    tags: ["Aço Inox 304", "Com Pedal", "Design Moderno"],
+    tags: ["Aço Inox 430", "Com Pedal", "Design Moderno"],
     ideal: ["Banheiros de Hotéis", "Resorts", "Residências de Alto Padrão"]
   },
   {
@@ -168,7 +168,7 @@ const products: Product[] = [
     category: "Utilitários Externos",
     description: "Bituqueira cilíndrica para fixação em parede, ideal para áreas externas de hotéis e resorts. Design moderno e discreto.",
     image: bituqueiraParede,
-    tags: ["Aço Inox 304", "Fixação em Parede", "Resistente"],
+    tags: ["Aço Inox 430", "Fixação em Parede", "Resistente"],
     ideal: ["Áreas Externas", "Entradas", "Varandas"],
     additionalCategories: ["Acessórios de Entrada", "Linha Resorts"]
   },
@@ -176,9 +176,9 @@ const products: Product[] = [
     id: 16,
     name: "Conjunto Coleta Seletiva Premium",
     category: "Linha Sustentável",
-    description: "Conjunto completo de coleta seletiva em aço inox 304 com aros coloridos para identificação. Sistema de 3 coletores para vidro, plástico e papel. Design cilíndrico sofisticado ideal para áreas corporativas e ambientes premium.",
+    description: "Conjunto completo de coleta seletiva em aço inox 430 com aros coloridos para identificação. Sistema de 3 coletores para vidro, plástico e papel. Design cilíndrico sofisticado ideal para áreas corporativas e ambientes premium.",
     image: coletaSeletivaInox,
-    tags: ["Aço Inox 304", "3 Coletores", "Sustentável", "Aros Coloridos"],
+    tags: ["Aço Inox 430", "3 Coletores", "Sustentável", "Aros Coloridos"],
     ideal: ["Áreas Comuns", "Escritórios", "Lobbies", "Refeitórios"],
     additionalCategories: ["Utilitários de Lobby e Corredor"]
   }
@@ -349,7 +349,7 @@ const ProductGallery = () => {
                       asChild
                     >
                       <a 
-                        href={`https://wa.me/5511978791851?text=${whatsappMessage(selectedProduct.name)}`}
+                        href={`https://wa.me/5511959105205?text=${whatsappMessage(selectedProduct.name)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
