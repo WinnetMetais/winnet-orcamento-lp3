@@ -3,213 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winnet Metais | Lixeiras e Utilitários em Inox Premium para Hotéis, Condomínios e Resorts</title>
-    <meta name="description" content="Soluções premium em aço inox para hotéis, condomínios e resorts. Lixeiras, coletores seletivos e utilitários de alta qualidade com design sofisticado. Durabilidade e elegância para ambientes corporativos.">
-    <meta name="keywords" content="lixeiras inox, lixeiras hotéis, lixeiras condomínios, lixeiras resorts, coleta seletiva inox, utilitários inox, equipamentos hotelaria, mobiliário corporativo inox">
-    <meta name="author" content="Winnet Metais">
-    <link rel="canonical" href="https://www.winnetmetais.com.br">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Winnet Metais | Lixeiras Premium em Inox para Hotéis e Condomínios">
-    <meta property="og:description" content="Soluções premium em aço inox para hotéis, condomínios e resorts. Alta qualidade, design sofisticado e durabilidade incomparável.">
-    <meta property="og:image" content="https://www.winnetmetais.com.br/og-image.jpg">
-    <meta property="og:url" content="https://www.winnetmetais.com.br">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Winnet Metais | Lixeiras Premium em Inox para Hotéis">
-    <meta name="twitter:description" content="Soluções premium em aço inox para ambientes corporativos sofisticados.">
-    <meta name="twitter:image" content="https://www.winnetmetais.com.br/og-image.jpg">
-
-    <!-- Google Fonts -->
+    <meta name="description" content="Winnet Metais - Soluções premium em aço inox para hotéis, condomínios e resorts. Lixeiras, coletores e utilitários de alta qualidade.">
+    <meta name="keywords" content="aço inox, lixeiras, hotéis, resorts, condomínios, coleta seletiva">
+    <title>Winnet Metais - Soluções Premium em Aço Inox</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MCTPZP3V');</script>
+    <!-- End Google Tag Manager -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Structured Data - Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Winnet Metais",
-      "url": "https://www.winnetmetais.com.br",
-      "logo": "https://www.winnetmetais.com.br/logo.png",
-      "description": "Fabricante de lixeiras e utilitários premium em aço inox para hotéis, condomínios e resorts",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+55-11-97879-1851",
-        "contactType": "sales",
-        "availableLanguage": "Portuguese"
-      }
-    }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
-            /* Colors */
-            --primary: hsl(213, 78%, 35%);
-            --primary-hover: hsl(213, 78%, 45%);
-            --accent: hsl(38, 92%, 50%);
-            --background: hsl(0, 0%, 100%);
-            --foreground: hsl(220, 15%, 15%);
-            --muted: hsl(210, 11%, 96%);
-            --muted-foreground: hsl(220, 10%, 45%);
-            --border: hsl(210, 11%, 88%);
-            
-            /* Shadows */
-            --shadow-soft: 0 2px 8px hsla(220, 15%, 15%, 0.08);
-            --shadow-medium: 0 8px 24px hsla(220, 15%, 15%, 0.12);
-            --shadow-strong: 0 16px 48px hsla(220, 15%, 15%, 0.16);
+            --primary: #1E5599;
+            --primary-hover: #2670B8;
+            --accent: #DF9305;
+            --background: #FFFFFF;
+            --foreground: #2A2E33;
+            --muted: #E8EDF2;
+            --border: #D2DDE4;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--foreground);
+            font-family: 'Inter', sans-serif;
             background: var(--background);
-            scroll-behavior: smooth;
+            color: var(--foreground);
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
 
-        /* HERO SECTION */
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+
+        /* Hero Section */
         .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            background: linear-gradient(135deg, #143D66 0%, #2670B8 100%);
             overflow: hidden;
-            background: linear-gradient(135deg, hsl(213, 78%, 25%) 0%, hsl(213, 78%, 45%) 100%);
         }
 
-        .hero::before {
+        .hero::before, .hero::after {
             content: '';
             position: absolute;
-            top: 80px;
-            left: 40px;
-            width: 288px;
-            height: 288px;
-            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            filter: blur(96px);
+            filter: blur(80px);
+            opacity: 0.1;
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 80px;
-            right: 40px;
-            width: 384px;
-            height: 384px;
-            background: hsla(38, 92%, 50%, 0.1);
-            border-radius: 50%;
-            filter: blur(96px);
-        }
+        .hero::before { top: 80px; left: 40px; width: 288px; height: 288px; background: white; }
+        .hero::after { bottom: 80px; right: 40px; width: 384px; height: 384px; background: var(--accent); }
 
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            padding: 5rem 0;
-            text-align: center;
-            color: white;
-        }
+        .hero-content { position: relative; z-index: 10; padding: 80px 0; }
+        .hero-grid { display: grid; gap: 48px; align-items: center; }
+        @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
 
-        .hero-badge {
+        .badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            margin-bottom: 2rem;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 9999px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 9999px;
-            font-size: 0.875rem;
+            color: white;
+            font-size: 14px;
             font-weight: 500;
-            animation: fadeIn 0.6s ease-out;
+            margin-bottom: 32px;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            animation: slideUp 0.8s ease-out;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: white;
+            margin-bottom: 24px;
         }
+        @media (min-width: 768px) { h1 { font-size: 3.75rem; } }
+        @media (min-width: 1024px) { h1 { font-size: 4.5rem; } }
 
-        .hero .text-gradient {
-            background: linear-gradient(135deg, var(--accent) 0%, hsl(45, 100%, 60%) 100%);
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #DF9305 0%, #FFC107 100%);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-top: 8px;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            margin-bottom: 2.5rem;
+        .hero-subtitle {
+            font-size: 1.125rem;
+            line-height: 1.75;
             color: rgba(255, 255, 255, 0.9);
-            max-width: 48rem;
-            margin-left: auto;
-            margin-right: auto;
-            animation: slideUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-            animation: slideUp 0.8s ease-out 0.4s both;
+            margin-bottom: 40px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
+            justify-content: center;
+            gap: 8px;
+            padding: 24px 32px;
             font-size: 1.125rem;
             font-weight: 600;
-            border-radius: 0.75rem;
+            border-radius: 12px;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: none;
+            transition: all 0.3s ease;
             cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
             background: var(--accent);
             color: var(--foreground);
-            box-shadow: var(--shadow-medium);
         }
 
         .btn-primary:hover {
             transform: scale(1.05);
-            box-shadow: var(--shadow-strong);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .btn-outline {
             background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
         }
 
         .btn-outline:hover {
@@ -217,712 +151,714 @@
             transform: scale(1.05);
         }
 
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        @media (min-width: 640px) { .btn-group { flex-direction: row; } }
+
         .trust-indicators {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeIn 0.6s ease-out 0.6s both;
-        }
-
-        .trust-item {
-            display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 24px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             color: rgba(255, 255, 255, 0.9);
-            font-size: 0.875rem;
+            font-size: 14px;
             font-weight: 500;
         }
+        @media (min-width: 1024px) { .trust-indicators { justify-content: flex-start; } }
 
-        .trust-item i {
-            color: var(--accent);
-        }
+        .trust-item { display: flex; align-items: center; gap: 8px; }
+        .icon { width: 20px; height: 20px; color: var(--accent); }
 
-        /* FEATURES SECTION */
-        .features {
-            padding: 5rem 0;
-            background: var(--background);
-        }
+        /* Features Section */
+        .features { padding: 80px 0; background: var(--background); }
+        .section-header { max-width: 48rem; margin: 0 auto 64px; text-align: center; }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
+        h2 {
             font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--foreground);
+            font-weight: 700;
+            margin-bottom: 16px;
         }
+        @media (min-width: 768px) { h2 { font-size: 3rem; } }
 
-        .section-header p {
-            font-size: 1.125rem;
-            color: var(--muted-foreground);
-            max-width: 48rem;
-            margin: 0 auto;
-        }
+        .section-subtitle { font-size: 1.125rem; color: #6B7C8C; }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 32px;
+            grid-template-columns: 1fr;
         }
+        @media (min-width: 768px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .features-grid { grid-template-columns: repeat(3, 1fr); } }
 
         .feature-card {
-            padding: 2rem;
-            background: white;
+            padding: 24px;
             border: 1px solid var(--border);
-            border-radius: 1rem;
+            border-radius: 12px;
+            background: white;
             transition: all 0.3s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-strong);
             border-color: var(--primary);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
         }
 
         .feature-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 3.5rem;
-            height: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, rgba(213, 78%, 35%, 0.1) 0%, rgba(38, 92%, 50%, 0.1) 100%);
-            border-radius: 1rem;
-            color: var(--primary);
-            font-size: 1.75rem;
+            width: 56px;
+            height: 56px;
+            margin-bottom: 16px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(30, 85, 153, 0.2) 0%, rgba(223, 147, 5, 0.2) 100%);
+            transition: all 0.3s ease;
         }
 
         .feature-card:hover .feature-icon {
-            color: var(--accent);
+            background: linear-gradient(135deg, rgba(30, 85, 153, 0.3) 0%, rgba(223, 147, 5, 0.3) 100%);
         }
 
-        .feature-card h3 {
+        h3 {
             font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
-            transition: color 0.3s;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
         }
 
-        .feature-card:hover h3 {
-            color: var(--primary);
+        .feature-card:hover h3 { color: var(--primary); }
+        .feature-description { color: #6B7C8C; line-height: 1.75; }
+
+        /* Products Section */
+        .products { padding: 80px 0; background: rgba(210, 221, 228, 0.3); }
+
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
         }
 
-        .feature-card p {
-            color: var(--muted-foreground);
-            line-height: 1.6;
+        .filter-btn {
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--foreground);
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        /* PRODUCTS SECTION */
-        .products {
-            padding: 5rem 0;
-            background: var(--muted);
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 32px;
+            grid-template-columns: 1fr;
         }
+        @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
 
-        .product-card {
+        .product-item {
             background: white;
             border: 1px solid var(--border);
-            border-radius: 1.5rem;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s ease;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .product-card:hover {
+        .product-item:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-strong);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
         }
 
-        .product-image {
+        .product-item-image {
             position: relative;
-            width: 100%;
             aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(210, 221, 228, 0.5) 0%, rgba(210, 221, 228, 0.2) 100%);
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(210, 11%, 85%, 0.3) 0%, rgba(210, 11%, 85%, 0.1) 100%);
         }
 
-        .product-image img {
+        .product-item-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .product-card:hover .product-image img {
-            transform: scale(1.1);
+        .product-item:hover .product-item-image img { transform: scale(1.1); }
+
+        .product-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 50%, rgba(0,0,0,0.6) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .product-info {
-            padding: 1.5rem;
-        }
+        .product-item:hover .product-overlay { opacity: 1; }
+
+        .product-info { padding: 24px; }
 
         .product-category {
             display: inline-block;
-            padding: 0.25rem 0.75rem;
-            margin-bottom: 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--primary);
-            background: rgba(213, 78%, 35%, 0.1);
-            border: 1px solid rgba(213, 78%, 35%, 0.2);
+            padding: 4px 12px;
+            font-size: 12px;
+            border: 1px solid var(--border);
             border-radius: 9999px;
+            margin-bottom: 12px;
         }
 
-        .product-card h3 {
+        .product-title {
             font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
         }
 
-        .product-card:hover h3 {
-            color: var(--primary);
-        }
+        .product-item:hover .product-title { color: var(--primary); }
 
-        .product-description {
-            font-size: 0.875rem;
-            color: var(--muted-foreground);
-            margin-bottom: 1rem;
+        .product-desc {
+            font-size: 14px;
+            color: #6B7C8C;
+            margin-bottom: 16px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
-        .product-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
+        .product-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
-        .product-tag {
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
+        .product-tag-item {
+            padding: 4px 8px;
+            font-size: 12px;
             font-weight: 500;
-            color: var(--primary);
-            background: rgba(213, 78%, 35%, 0.1);
             border-radius: 9999px;
+            background: rgba(30, 85, 153, 0.1);
+            color: var(--primary);
         }
 
-        /* CTA SECTION */
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 64rem;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover { background: rgba(0, 0, 0, 0.2); }
+
+        .modal-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .modal-body { padding: 24px; }
+
+        .modal-grid {
+            display: grid;
+            gap: 24px;
+        }
+        @media (min-width: 768px) { .modal-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .modal-image {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(210, 221, 228, 0.2);
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-details { display: flex; flex-direction: column; }
+
+        .modal-badge {
+            align-self: flex-start;
+            padding: 8px 16px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            border-radius: 9999px;
+            background: rgba(223, 147, 5, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(223, 147, 5, 0.2);
+        }
+
+        .modal-description {
+            margin-bottom: 24px;
+            color: #6B7C8C;
+            line-height: 1.75;
+        }
+
+        .modal-section { margin-bottom: 24px; }
+        .modal-section-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+        .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .modal-tag {
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 12px;
+            background: var(--muted);
+            color: var(--foreground);
+        }
+
+        .modal-list { list-style: none; }
+
+        .modal-list-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #6B7C8C;
+        }
+
+        .modal-list-item::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .modal-cta { margin-top: auto; }
+
+        /* CTA Section */
         .cta {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, hsl(213, 78%, 25%) 0%, hsl(213, 78%, 45%) 100%);
-            color: white;
-            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #143D66 0%, #2670B8 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .cta::before,
-        .cta::after {
+        .cta::before, .cta::after {
             content: '';
             position: absolute;
             border-radius: 50%;
-            filter: blur(96px);
+            filter: blur(80px);
             opacity: 0.1;
         }
 
-        .cta::before {
-            top: 40px;
-            right: 40px;
-            width: 384px;
-            height: 384px;
-            background: white;
-        }
-
-        .cta::after {
-            bottom: 40px;
-            left: 40px;
-            width: 288px;
-            height: 288px;
-            background: var(--accent);
-        }
+        .cta::before { top: 40px; right: 40px; width: 384px; height: 384px; background: white; }
+        .cta::after { bottom: 40px; left: 40px; width: 288px; height: 288px; background: var(--accent); }
 
         .cta-content {
             position: relative;
             z-index: 10;
+            max-width: 64rem;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .cta h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-        }
+        .cta h2 { color: white; margin-bottom: 24px; }
 
-        .cta p {
+        .cta-subtitle {
+            max-width: 32rem;
+            margin: 0 auto 40px;
             font-size: 1.25rem;
-            margin-bottom: 2.5rem;
             color: rgba(255, 255, 255, 0.9);
-            max-width: 48rem;
-            margin-left: auto;
-            margin-right: auto;
+            line-height: 1.75;
         }
 
         .cta-buttons {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            justify-content: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .contact-item {
-            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.3s;
+            gap: 16px;
+            margin-bottom: 48px;
         }
+        @media (min-width: 640px) { .cta-buttons { flex-direction: row; justify-content: center; } }
 
-        .contact-item:hover {
-            color: var(--accent);
+        .cta-contact-info {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
         }
+        @media (min-width: 640px) { .cta-contact-info { flex-direction: row; justify-content: center; gap: 48px; } }
 
-        /* FOOTER */
+        .cta-contact-item { display: flex; align-items: center; gap: 8px; }
+        .cta-contact-item a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+        .cta-contact-item a:hover { color: var(--accent); }
+
+        /* Footer */
         .footer {
-            padding: 3rem 0;
             background: var(--foreground);
             color: var(--background);
+            padding: 48px 0;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 32px;
+            margin-bottom: 32px;
         }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
 
-        .footer h3,
-        .footer h4 {
-            margin-bottom: 1rem;
-        }
+        .footer h3 { font-size: 1.25rem; color: var(--accent); margin-bottom: 16px; }
+        .footer h4 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; }
 
-        .footer h3 {
-            color: var(--accent);
-        }
-
-        .footer ul {
-            list-style: none;
-        }
-
-        .footer ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer a {
+        .footer p {
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s;
+            line-height: 1.75;
+            margin-bottom: 16px;
         }
 
-        .footer a:hover {
-            color: var(--accent);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
+        .footer-social { display: flex; gap: 12px; }
 
         .footer-social a {
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2.5rem;
-            height: 2.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: all 0.3s;
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
         }
 
-        .footer-social a:hover {
-            background: var(--accent);
-            color: var(--foreground);
-            transform: translateY(-2px);
+        .footer-social a:hover { color: var(--accent); }
+
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 8px; }
+
+        .footer ul a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
+
+        .footer ul a:hover { color: var(--accent); }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-contact a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover { color: var(--accent); }
 
         .footer-bottom {
-            padding-top: 2rem;
+            padding-top: 32px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            gap: 1rem;
-            font-size: 0.875rem;
+            gap: 16px;
+            font-size: 14px;
             color: rgba(255, 255, 255, 0.7);
         }
+        @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
 
-        /* WHATSAPP BUTTON */
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* WhatsApp Button */
         .whatsapp-button {
             position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            z-index: 9999;
-            width: 4rem;
-            height: 4rem;
-            background: #25D366;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
+            background: #25D366;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 2rem;
-            box-shadow: var(--shadow-strong);
-            transition: all 0.3s ease;
             text-decoration: none;
-            animation: bounce 2s infinite;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
 
         .whatsapp-button:hover {
             transform: scale(1.1);
-            background: #20bd5a;
+            background: #20BD5A;
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
         }
 
-        /* ANIMATIONS */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .cta h2 {
-                font-size: 2rem;
-            }
-
-            .hero-buttons,
-            .cta-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
-    <!-- HERO SECTION -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCTPZP3V"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-sparkles"></i>
-                    <span>Referência em Soluções Premium de Aço Inox</span>
-                </div>
-
-                <h1>
-                    Elegância e Durabilidade
-                    <span class="text-gradient">que Transformam</span>
-                    Seu Ambiente
-                </h1>
-
-                <p>
-                    Soluções premium em aço inox para <strong>hotéis</strong>, <strong>condomínios</strong> e <strong>resorts</strong> que elevam o padrão de sofisticação do seu espaço.
-                </p>
-
-                <div class="hero-buttons">
-                    <a href="https://wa.me/5511978791851?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20da%20Landing%20Page%20Premium%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20meu%20hotel/condom%C3%ADnio/resort." target="_blank" class="btn btn-primary">
-                        Solicitar Orçamento
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#produtos" class="btn btn-outline">
-                        Ver Produtos
-                    </a>
-                </div>
-
-                <div class="trust-indicators">
-                    <div class="trust-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Garantia de Qualidade</span>
+        <div class="hero-content container">
+            <div class="hero-grid">
+                <div style="text-align: center;">
+                    <div class="badge animate-fade-in">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path></svg>
+                        <span>Referência em Soluções Premium de Aço Inox</span>
                     </div>
-                    <div class="trust-item">
-                        <i class="fas fa-award"></i>
-                        <span>+15 Anos de Experiência</span>
+
+                    <h1>
+                        Elegância e Durabilidade
+                        <span class="text-gradient-gold">que Transformam</span>
+                        <span style="display: block; margin-top: 8px;">Seu Ambiente</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Soluções premium em aço inox para <strong>hotéis</strong>, <strong>condomínios</strong> e <strong>resorts</strong> que elevam o padrão de sofisticação do seu espaço.
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="https://wa.me/5511959105205?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20da%20Landing%20Page%20Premium%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20meu%20hotel/condom%C3%ADnio/resort." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            Solicitar Orçamento
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </a>
+                        <a href="#produtos" class="btn btn-outline">Ver Produtos</a>
                     </div>
-                    <div class="trust-item">
-                        <i class="fas fa-sparkles"></i>
-                        <span>Produtos Personalizáveis</span>
+
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+                            <span>Garantia de Qualidade</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+                            <span>+2 Anos</span>
+                        </div>
+                        <div class="trust-item">
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path></svg>
+                            <span>Personalizável</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FEATURES SECTION -->
+    <!-- Features Section -->
     <section class="features">
         <div class="container">
             <div class="section-header">
                 <h2>
                     Por que Escolher a
-                    <span class="text-gradient">Winnet Metais?</span>
+                    <span class="text-gradient-gold" style="display: block; margin-top: 8px;">Winnet Metais?</span>
                 </h2>
-                <p>Excelência em cada detalhe, do projeto à entrega. Soluções que elevam o padrão do seu negócio.</p>
+                <p class="section-subtitle">
+                    Excelência em cada detalhe, do projeto à entrega. Soluções que elevam o padrão do seu negócio.
+                </p>
             </div>
 
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
                     </div>
                     <h3>Aço Inox de Alta Qualidade</h3>
-                    <p>Utilizamos exclusivamente aço inox 304 e 316, garantindo máxima resistência à corrosão e durabilidade superior.</p>
+                    <p class="feature-description">Aço inox 430 e 304 em projetos específicos, garantindo máxima resistência à corrosão e durabilidade superior.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-sparkles"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path></svg>
                     </div>
                     <h3>Design Sofisticado</h3>
-                    <p>Produtos com acabamento premium que agregam elegância e modernidade aos ambientes mais exigentes.</p>
+                    <p class="feature-description">Produtos com acabamento premium que agregam elegância e modernidade aos ambientes mais exigentes.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9z"></path></svg>
                     </div>
                     <h3>Entrega Rápida</h3>
-                    <p>Logística eficiente com prazos reduzidos. Atendemos todo o território nacional com agilidade.</p>
+                    <p class="feature-description">Logística eficiente com prazos reduzidos. Atendemos todo o território nacional com agilidade.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-award"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
                     </div>
                     <h3>Garantia Estendida</h3>
-                    <p>Confiança comprovada com garantia estendida. Mais de 15 anos atendendo os clientes mais exigentes do mercado.</p>
+                    <p class="feature-description">Confiança comprovada com garantia estendida. Mais de 2 anos atendendo os clientes mais exigentes do mercado.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-tools"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
                     </div>
                     <h3>Personalização Completa</h3>
-                    <p>Desenvolvemos projetos sob medida com dimensões, acabamentos e funcionalidades customizadas.</p>
+                    <p class="feature-description">Desenvolvemos projetos sob medida com dimensões, acabamentos e funcionalidades customizadas.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-leaf"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
                     </div>
                     <h3>Sustentabilidade</h3>
-                    <p>Produtos 100% recicláveis que contribuem para a certificação ambiental do seu empreendimento.</p>
+                    <p class="feature-description">Produtos 100% recicláveis que contribuem para a certificação ambiental do seu empreendimento.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PRODUCTS SECTION -->
-    <section id="produtos" class="products">
+    <!-- Products Section -->
+    <section class="products" id="produtos">
         <div class="container">
             <div class="section-header">
+                <div class="badge" style="margin: 0 auto 16px; background: rgba(223, 147, 5, 0.1); color: var(--accent); border-color: rgba(223, 147, 5, 0.2);">
+                    Portfólio Premium
+                </div>
                 <h2>
                     Soluções Completas em
-                    <span class="text-gradient">Aço Inox</span>
+                    <span class="text-gradient-gold" style="display: block; margin-top: 8px;">Aço Inox</span>
                 </h2>
-                <p>Cada produto é projetado para aliar sofisticação, durabilidade e funcionalidade aos ambientes mais exigentes.</p>
+                <p class="section-subtitle">
+                    Cada produto é projetado para aliar sofisticação, durabilidade e funcionalidade aos ambientes mais exigentes.
+                </p>
             </div>
 
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=500" alt="Lixeira Cilíndrica Premium">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Lixeiras de Lobby</span>
-                        <h3>Lixeira Cilíndrica Premium</h3>
-                        <p class="product-description">Design elegante e discreto, perfeito para áreas de circulação de alto padrão. Acabamento em aço inox escovado com alta resistência.</p>
-                        <div class="product-tags">
-                            <span class="product-tag">Inox 304</span>
-                            <span class="product-tag">Design Premium</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500" alt="Coletor Cilíndrico">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Coletores para Corredores</span>
-                        <h3>Coletor Cilíndrico Corporativo</h3>
-                        <p class="product-description">Solução sofisticada para corredores e áreas de trânsito. Tampa basculante de fácil uso e manutenção simplificada.</p>
-                        <div class="product-tags">
-                            <span class="product-tag">Fácil Manutenção</span>
-                            <span class="product-tag">Design Moderno</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500" alt="Lixeira Hospitalar">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Linha Hospitalar</span>
-                        <h3>Lixeira Hospitalar com Pedal</h3>
-                        <p class="product-description">Acionamento por pedal para máxima higiene. Ideal para ambientes que exigem alto padrão de limpeza e assepsia.</p>
-                        <div class="product-tags">
-                            <span class="product-tag">Pedal Higiênico</span>
-                            <span class="product-tag">Inox Hospitalar</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=500" alt="Cavalete de Sinalização">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Sinalização e Segurança</span>
-                        <h3>Cavalete de Sinalização</h3>
-                        <p class="product-description">Cavalete dobrável em aço inox com sinalização bilíngue. Essencial para manutenção da segurança em áreas de limpeza.</p>
-                        <div class="product-tags">
-                            <span class="product-tag">Bilíngue</span>
-                            <span class="product-tag">Dobrável</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=500" alt="Porta Guarda-Chuvas">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Acessórios de Entrada</span>
-                        <h3>Porta Guarda-Chuvas Premium</h3>
-                        <p class="product-description">Design sofisticado com sistema de drenagem integrado. Perfeito para entradas principais de hotéis e condomínios.</p>
-                        <div class="product-tags">
-                            <span class="product-tag">Drenagem Integrada</span>
-                            <span class="product-tag">Design Exclusivo</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="https://images.unsplash.com/photo-1574643156929-51fa098b0394?w=500" alt="Coletor com Rodízios">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Linha Móvel</span>
-                        <h3>Coletor Hospitalar com Rodízios</h3>
-                        <p class="product-description">Mobilidade e higiene em um único produto. Rodízios de alta qualidade e alças ergonômicas para transporte eficiente.</p>
-                        <div class="product-tags">
-                            <span class="product-tag">Rodízios 360°</span>
-                            <span class="product-tag">Grande Capacidade</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="category-filter">
+                <button class="filter-btn active" onclick="filterProducts('all')">Todos os Produtos</button>
+                <button class="filter-btn" onclick="filterProducts('Lixeiras de Lobby')">Lixeiras de Lobby</button>
+                <button class="filter-btn" onclick="filterProducts('Linha Resorts')">Linha Resorts</button>
+                <button class="filter-btn" onclick="filterProducts('Acessórios de Entrada')">Acessórios de Entrada</button>
             </div>
+
+            <div class="products-grid" id="productsGrid"></div>
         </div>
     </section>
 
-    <!-- CTA SECTION -->
+    <!-- Product Modal -->
+    <div class="modal" id="productModal" onclick="if(event.target === this) closeModal()">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-grid" id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
     <section class="cta">
         <div class="container">
             <div class="cta-content">
                 <h2>
                     Pronto para Elevar o Padrão
-                    <span class="text-gradient">do Seu Empreendimento?</span>
+                    <span class="text-gradient-gold" style="display: block; margin-top: 8px;">do Seu Empreendimento?</span>
                 </h2>
-                <p>
+                <p class="cta-subtitle">
                     Fale com nossos especialistas e descubra como nossas soluções premium em aço inox podem transformar seus ambientes.
                 </p>
 
                 <div class="cta-buttons">
-                    <a href="https://wa.me/5511978791851?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20personalizado%20para%20meu%20hotel/condom%C3%ADnio/resort.%20Vim%20atrav%C3%A9s%20da%20Landing%20Page%20Premium." target="_blank" class="btn btn-primary">
-                        <i class="fas fa-phone"></i>
+                    <a href="https://wa.me/5511959105205?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20personalizado%20para%20meu%20hotel/condom%C3%ADnio/resort.%20Vim%20atrav%C3%A9s%20da%20Landing%20Page%20Premium." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                         Falar com Especialista
-                        <i class="fas fa-arrow-right"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                     </a>
-                    <a href="mailto:contato@winnetmetais.com.br" class="btn btn-outline">
-                        <i class="fas fa-envelope"></i>
+                    <a href="mailto:comercial@winnetmetais.com.br" class="btn btn-outline">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
                         Enviar E-mail
                     </a>
                 </div>
 
-                <div class="contact-info">
-                    <a href="tel:+5511978791851" class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+55 (11) 97879-1851</span>
-                    </a>
-                    <a href="mailto:contato@winnetmetais.com.br" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>contato@winnetmetais.com.br</span>
-                    </a>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
+                <div class="cta-contact-info">
+                    <div class="cta-contact-item">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <a href="tel:+5511959105205">+55 (11) 95910-5205</a>
+                    </div>
+                    <div class="cta-contact-item">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        <a href="mailto:comercial@winnetmetais.com.br">comercial@winnetmetais.com.br</a>
+                    </div>
+                    <div class="cta-contact-item">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                         <span>São Paulo - SP</span>
                     </div>
                 </div>
@@ -930,7 +866,7 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -938,9 +874,15 @@
                     <h3>Winnet Metais</h3>
                     <p>Referência em soluções premium de aço inox para hotéis, condomínios e resorts. Qualidade e sofisticação desde 2008.</p>
                     <div class="footer-social">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
                     </div>
                 </div>
 
@@ -968,17 +910,17 @@
 
                 <div>
                     <h4>Contato</h4>
-                    <ul>
+                    <ul class="footer-contact">
                         <li>
-                            <i class="fas fa-phone"></i>
-                            <a href="tel:+5511978791851">+55 (11) 97879-1851</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <a href="tel:+5511959105205">+55 (11) 95910-5205</a>
                         </li>
                         <li>
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:contato@winnetmetais.com.br">contato@winnetmetais.com.br</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                            <a href="mailto:comercial@winnetmetais.com.br">comercial@winnetmetais.com.br</a>
                         </li>
                         <li>
-                            <i class="fas fa-map-marker-alt"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                             <span>São Paulo - SP<br>Brasil</span>
                         </li>
                     </ul>
@@ -987,18 +929,108 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2025 Winnet Metais. Todos os direitos reservados.</p>
-                <div>
-                    <a href="#">Política de Privacidade</a> | 
+                <div class="footer-links">
+                    <a href="#">Política de Privacidade</a>
                     <a href="#">Termos de Uso</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- WHATSAPP FLOATING BUTTON -->
-    <a href="https://wa.me/5511978791851?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos%20Winnet.%20Vim%20atrav%C3%A9s%20da%20Landing%20Page%20Premium." target="_blank" class="whatsapp-button" aria-label="Falar no WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5511959105205?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos%20Winnet.%20Vim%20atrav%C3%A9s%20da%20Landing%20Page%20Premium." target="_blank" rel="noopener noreferrer" class="whatsapp-button" aria-label="Falar no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
     </a>
 
+    <script>
+        // IMPORTANTE: Substitua os URLs de imagem pelos caminhos reais das suas imagens hospedadas
+        const products = [
+            { id: 1, name: "Lixeira Basculante Redonda", category: "Lixeiras de Lobby", description: "Design redondo elegante e discreto, perfeito para áreas de circulação de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido de alta resistência.", image: "https://via.placeholder.com/400?text=Lixeira+Basculante+Redonda", tags: ["Aço Inox 430", "Aço Polido"], ideal: ["Lobbies de Hotéis", "Recepções"], additionalCategories: [] },
+            { id: 2, name: "Coletor Cilíndrico Corporativo", category: "Coletores para Corredores", description: "Solução sofisticada para corredores e áreas de trânsito. Fabricada em aço inox 430 com acabamento em aço polido.", image: "https://via.placeholder.com/400?text=Coletor+Corporativo", tags: ["Aço Inox 430", "Tampa Basculante"], ideal: ["Corredores", "Halls"], additionalCategories: ["Lixeiras de Lobby"] },
+            { id: 3, name: "Lixeira com Tampa para Banheiros", category: "Linha Resorts", description: "Design elegante e discreto para banheiros de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido.", image: "https://via.placeholder.com/400?text=Lixeira+Banheiro", tags: ["Aço Inox 430", "Design Elegante"], ideal: ["Resorts", "Hotéis"], additionalCategories: [] },
+            { id: 4, name: "Porta Guarda-Chuvas Premium", category: "Acessórios de Entrada", description: "Design sofisticado com sistema de drenagem integrado. Perfeito para entradas principais.", image: "https://via.placeholder.com/400?text=Porta+Guarda-Chuvas", tags: ["Drenagem Integrada", "Design Exclusivo"], ideal: ["Entradas", "Recepções"], additionalCategories: [] },
+            { id: 5, name: "Bituqueira para Áreas Externas", category: "Utilitários Externos", description: "Solução elegante para áreas fumantes. Base sólida com cinzeiro superior removível.", image: "https://via.placeholder.com/400?text=Bituqueira", tags: ["Uso Externo", "Resistente"], ideal: ["Áreas Externas", "Jardins"], additionalCategories: ["Acessórios de Entrada", "Linha Resorts"] },
+            { id: 6, name: "Conjunto Coleta Seletiva Premium", category: "Linha Sustentável", description: "Conjunto completo de coleta seletiva em aço inox 430 com aros coloridos. Sistema de 3 coletores.", image: "https://via.placeholder.com/400?text=Coleta+Seletiva", tags: ["Aço Inox 430", "3 Coletores", "Sustentável"], ideal: ["Escritórios", "Lobbies"], additionalCategories: [] }
+        ];
+
+        let currentFilter = 'all';
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const filtered = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter || (p.additionalCategories && p.additionalCategories.includes(currentFilter)));
+
+            grid.innerHTML = filtered.map(product => `
+                <div class="product-item animate-fade-in" onclick="openModal(${product.id})">
+                    <div class="product-item-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="btn btn-primary" style="padding: 12px 24px; font-size: 14px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-desc">${product.description}</p>
+                        <div class="product-tags">
+                            ${product.tags.slice(0, 2).map(tag => `<span class="product-tag-item">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterProducts(category) {
+            currentFilter = category;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.includes(category === 'all' ? 'Todos' : category)) btn.classList.add('active');
+            });
+            renderProducts();
+        }
+
+        function openModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            document.getElementById('modalTitle').textContent = product.name;
+            document.getElementById('modalBody').innerHTML = `
+                <div class="modal-image">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="modal-details">
+                    <span class="modal-badge">${product.category}</span>
+                    <p class="modal-description">${product.description}</p>
+                    <div class="modal-section">
+                        <h4 class="modal-section-title">Características:</h4>
+                        <div class="modal-tags">${product.tags.map(tag => `<span class="modal-tag">${tag}</span>`).join('')}</div>
+                    </div>
+                    <div class="modal-section">
+                        <h4 class="modal-section-title">Ideal Para:</h4>
+                        <ul class="modal-list">${product.ideal.map(place => `<li class="modal-list-item">${place}</li>`).join('')}</ul>
+                    </div>
+                    <div class="modal-cta">
+                        <a href="https://wa.me/5511959105205?text=${encodeURIComponent(`Olá! Gostaria de solicitar um orçamento para: ${product.name}.`)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+                            Solicitar Orçamento
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('productModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+        document.addEventListener('DOMContentLoaded', renderProducts);
+    </script>
 </body>
 </html>
