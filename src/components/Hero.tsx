@@ -124,7 +124,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center gap-2 text-white/90">
                 <Award className="w-5 h-5 text-accent" />
-                <span className="text-sm font-medium">+15 Anos</span>
+                <span className="text-sm font-medium">+2 Anos</span>
               </div>
               <div className="flex items-center gap-2 text-white/90">
                 <Sparkles className="w-5 h-5 text-accent" />

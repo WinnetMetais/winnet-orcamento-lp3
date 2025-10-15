@@ -20,7 +20,7 @@ const features = [
   {
     icon: Award,
     title: "Garantia Estendida",
-    description: "Confiança comprovada com garantia estendida. Mais de 15 anos atendendo os clientes mais exigentes do mercado."
+    description: "Confiança comprovada com garantia estendida. Mais de 2 anos atendendo os clientes mais exigentes do mercado."
   },
   {
     icon: Wrench,

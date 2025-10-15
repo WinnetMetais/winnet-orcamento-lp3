@@ -17,6 +17,9 @@ import ensacadorGuardaChuvas from "@/assets/ensacador-guarda-chuvas.png";
 import portaExtintorLobby from "@/assets/porta-extintor-lobby.png";
 import lixeiraBanheiroResort from "@/assets/lixeira-banheiro-resort.png";
 import lixeiraBasculanteRedonda from "@/assets/lixeira-basculante-redonda.png";
+import lixeiraPedalBanheiro from "@/assets/lixeira-pedal-banheiro.png";
+import conjuntoPortaExtintorPlaca from "@/assets/conjunto-porta-extintor-placa.png";
+import bituqueiraParede from "@/assets/bituqueira-parede.png";
 
 interface Product {
   id: number;
@@ -26,6 +29,7 @@ interface Product {
   image: string;
   tags: string[];
   ideal: string[];
+  additionalCategories?: string[];
 }
 
 const products: Product[] = [
@@ -45,7 +49,8 @@ const products: Product[] = [
     description: "Solução sofisticada para corredores e áreas de trânsito. Fabricada em aço inox 430 com acabamento em aço polido. Tampa basculante de fácil uso e manutenção simplificada.",
     image: lixeiraHotelCorredor,
     tags: ["Aço Inox 430", "Aço Polido", "Tampa Basculante"],
-    ideal: ["Corredores", "Áreas de Serviço", "Halls"]
+    ideal: ["Corredores", "Áreas de Serviço", "Halls"],
+    additionalCategories: ["Lixeiras de Lobby"]
   },
   {
     id: 3,
@@ -99,7 +104,8 @@ const products: Product[] = [
     description: "Solução elegante para áreas fumantes. Base sólida com cinzeiro superior removível para fácil limpeza.",
     image: bituqueiraExterna,
     tags: ["Uso Externo", "Cinzeiro Removível", "Resistente"],
-    ideal: ["Áreas Externas", "Fumódromos", "Jardins"]
+    ideal: ["Áreas Externas", "Fumódromos", "Jardins"],
+    additionalCategories: ["Acessórios de Entrada", "Linha Resorts"]
   },
   {
     id: 7,
@@ -136,6 +142,34 @@ const products: Product[] = [
     image: lixeiraRecepcao,
     tags: ["Aço Inox 430", "Aço Polido", "Fechamento Suave"],
     ideal: ["Recepções", "Salas VIP", "Áreas Executivas"]
+  },
+  {
+    id: 13,
+    name: "Lixeira com Pedal para Banheiro",
+    category: "Linha Resorts",
+    description: "Lixeira cilíndrica com pedal, acabamento espelhado em aço inox 304, perfeita para banheiros sofisticados de hotéis e resorts.",
+    image: lixeiraPedalBanheiro,
+    tags: ["Aço Inox 304", "Com Pedal", "Design Moderno"],
+    ideal: ["Banheiros de Hotéis", "Resorts", "Residências de Alto Padrão"]
+  },
+  {
+    id: 14,
+    name: "Conjunto Porta Extintor e Placa",
+    category: "Acessórios de Entrada",
+    description: "Conjunto completo com porta extintor, placa de sinalização 'Piso Molhado' e porta guarda-chuvas em aço inox premium.",
+    image: conjuntoPortaExtintorPlaca,
+    tags: ["Kit Completo", "Multifuncional", "Segurança"],
+    ideal: ["Entradas", "Lobbies", "Áreas de Circulação"]
+  },
+  {
+    id: 15,
+    name: "Bituqueira de Parede Externa",
+    category: "Utilitários Externos",
+    description: "Bituqueira cilíndrica para fixação em parede, ideal para áreas externas de hotéis e resorts. Design moderno e discreto.",
+    image: bituqueiraParede,
+    tags: ["Aço Inox 304", "Fixação em Parede", "Resistente"],
+    ideal: ["Áreas Externas", "Entradas", "Varandas"],
+    additionalCategories: ["Acessórios de Entrada", "Linha Resorts"]
   }
 ];
 
@@ -147,7 +181,7 @@ const ProductGallery = () => {
   
   const filteredProducts = filter === "all" 
     ? products 
-    : products.filter(p => p.category === filter);
+    : products.filter(p => p.category === filter || (p.additionalCategories && p.additionalCategories.includes(filter)));
 
   const whatsappMessage = (productName: string) => 
     encodeURIComponent(`Olá! Gostaria de solicitar um orçamento para: ${productName}. Vim através da Landing Page Premium.`);
