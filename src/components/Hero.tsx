@@ -65,10 +65,10 @@ const Hero = () => {
         <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-accent rounded-full blur-3xl" />
       </div>
 
-      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 py-6 sm:py-10 lg:py-20 mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="container relative z-10 px-5 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-20 mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Left Column - Text Content */}
-          <div className="text-center lg:text-left space-y-5 sm:space-y-6 max-w-2xl mx-auto lg:mx-0">
+          <div className="text-center lg:text-left space-y-4 sm:space-y-6 w-full max-w-xl mx-auto lg:max-w-2xl lg:mx-0 px-2 sm:px-0">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 animate-fade-in">
               <Sparkles className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-accent flex-shrink-0" />
@@ -78,16 +78,16 @@ const Hero = () => {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-[1.75rem] leading-[1.2] font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl animate-slide-up">
+            <h1 className="text-[1.6rem] leading-[1.15] font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl animate-slide-up break-words">
               Elegância e Durabilidade
-              <span className="block mt-2 bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent">
+              <span className="block mt-1.5 sm:mt-2 bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent">
                 que Transformam
               </span>
-              <span className="block mt-2">Seu Ambiente</span>
+              <span className="block mt-1.5 sm:mt-2">Seu Ambiente</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-sm leading-relaxed text-white/90 sm:text-base md:text-lg animate-slide-up max-w-xl mx-auto lg:mx-0" style={{ animationDelay: '0.2s' }}>
+            <p className="text-[0.9rem] leading-relaxed text-white/90 sm:text-base md:text-lg animate-slide-up w-full max-w-lg mx-auto lg:mx-0 break-words" style={{ animationDelay: '0.2s' }}>
               Soluções premium em aço inox para <strong>hotéis</strong>, <strong>condomínios</strong> e <strong>resorts</strong> que elevam o padrão de sofisticação do seu espaço.
             </p>
 
@@ -134,10 +134,10 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Product Gallery Carousel */}
-          <div className="relative animate-fade-in lg:mt-0" style={{ animationDelay: '0.3s' }}>
+          <div className="relative animate-fade-in lg:mt-0 w-full px-2 sm:px-0" style={{ animationDelay: '0.3s' }}>
             <Carousel
               opts={{
-                align: "start",
+                align: "center",
                 loop: true,
               }}
               plugins={[
@@ -145,23 +145,23 @@ const Hero = () => {
                   delay: 3000,
                 }),
               ]}
-              className="w-full max-w-lg mx-auto lg:max-w-none"
+              className="w-full max-w-[280px] sm:max-w-lg mx-auto lg:max-w-none"
             >
-              <CarouselContent className="-ml-3">
+              <CarouselContent className="-ml-2 sm:-ml-3">
                 {featuredProducts.map((product, index) => (
-                  <CarouselItem key={index} className="pl-3 basis-[90%] sm:basis-[45%] lg:basis-full">
-                    <div className="relative group h-full">
+                  <CarouselItem key={index} className="pl-2 sm:pl-3 basis-full sm:basis-[45%] lg:basis-full">
+                    <div className="relative group h-full w-full">
                       {/* Product Card */}
-                      <div className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-4 sm:p-5 lg:p-6 hover:bg-white/15 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl h-full">
+                      <div className="relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-5 lg:p-6 hover:bg-white/15 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl h-full">
                         {/* Tag */}
-                        <div className="absolute top-3 right-3 z-10">
-                          <span className="px-2.5 py-1 text-[10px] sm:text-xs font-bold rounded-full bg-accent text-foreground shadow-lg">
+                        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10">
+                          <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[9px] sm:text-xs font-bold rounded-full bg-accent text-foreground shadow-lg">
                             {product.tag}
                           </span>
                         </div>
 
                         {/* Product Image */}
-                        <div className="relative aspect-square mb-3 overflow-hidden rounded-xl bg-gradient-to-br from-white/20 to-white/5">
+                        <div className="relative aspect-square mb-2 sm:mb-3 overflow-hidden rounded-xl bg-gradient-to-br from-white/20 to-white/5">
                           <img
                             src={product.image}
                             alt={product.name}
@@ -177,12 +177,12 @@ const Hero = () => {
                         </div>
 
                         {/* Product Name */}
-                        <h3 className="text-sm sm:text-base font-bold text-white text-center group-hover:text-accent transition-colors duration-300 leading-tight px-2">
+                        <h3 className="text-xs sm:text-base font-bold text-white text-center group-hover:text-accent transition-colors duration-300 leading-tight px-1 sm:px-2">
                           {product.name}
                         </h3>
 
                         {/* Decorative Line */}
-                        <div className="mt-2 mx-auto w-12 h-1 bg-gradient-to-r from-accent to-yellow-300 rounded-full" />
+                        <div className="mt-1.5 sm:mt-2 mx-auto w-10 sm:w-12 h-0.5 sm:h-1 bg-gradient-to-r from-accent to-yellow-300 rounded-full" />
                       </div>
 
                       {/* Glow Effect */}
