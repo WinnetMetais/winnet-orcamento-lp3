@@ -20,6 +20,7 @@ import lixeiraBasculanteRedonda from "@/assets/lixeira-basculante-redonda.png";
 import lixeiraPedalBanheiro from "@/assets/lixeira-pedal-banheiro.png";
 import conjuntoPortaExtintorPlaca from "@/assets/conjunto-porta-extintor-placa.png";
 import bituqueiraParede from "@/assets/bituqueira-parede.png";
+import coletaSeletivaInox from "@/assets/coleta-seletiva-inox.png";
 
 interface Product {
   id: number;
@@ -170,6 +171,16 @@ const products: Product[] = [
     tags: ["Aço Inox 304", "Fixação em Parede", "Resistente"],
     ideal: ["Áreas Externas", "Entradas", "Varandas"],
     additionalCategories: ["Acessórios de Entrada", "Linha Resorts"]
+  },
+  {
+    id: 16,
+    name: "Conjunto Coleta Seletiva Premium",
+    category: "Linha Sustentável",
+    description: "Conjunto completo de coleta seletiva em aço inox 304 com aros coloridos para identificação. Sistema de 3 coletores para vidro, plástico e papel. Design cilíndrico sofisticado ideal para áreas corporativas e ambientes premium.",
+    image: coletaSeletivaInox,
+    tags: ["Aço Inox 304", "3 Coletores", "Sustentável", "Aros Coloridos"],
+    ideal: ["Áreas Comuns", "Escritórios", "Lobbies", "Refeitórios"],
+    additionalCategories: ["Utilitários de Lobby e Corredor"]
   }
 ];
 
