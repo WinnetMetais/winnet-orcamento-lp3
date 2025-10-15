@@ -5,7 +5,7 @@ const features = [
   {
     icon: Shield,
     title: "Aço Inox de Alta Qualidade",
-    description: "Utilizamos exclusivamente aço inox 304 e 316, garantindo máxima resistência à corrosão e durabilidade superior."
+    description: "Aço inox 430 e 304 em projetos específicos, garantindo máxima resistência à corrosão e durabilidade superior."
   },
   {
     icon: Sparkles,
