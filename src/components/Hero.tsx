@@ -19,7 +19,7 @@ const Hero = () => {
   const whatsappMessage = encodeURIComponent(
     "Olá! Vim através da Landing Page Premium e gostaria de solicitar um orçamento para meu hotel/condomínio/resort."
   );
-  const whatsappUrl = `https://wa.me/5511978791851?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/5511959105205?text=${whatsappMessage}`;
 
   const featuredProducts = [
     {

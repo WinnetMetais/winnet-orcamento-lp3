@@ -5,7 +5,7 @@ const CTA = () => {
   const whatsappMessage = encodeURIComponent(
     "Olá! Gostaria de solicitar um orçamento personalizado para meu hotel/condomínio/resort. Vim através da Landing Page Premium."
   );
-  const whatsappUrl = `https://wa.me/5511978791851?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/5511959105205?text=${whatsappMessage}`;
 
   return (
     <section className="py-20 bg-gradient-to-br from-primary via-primary-hover to-primary/90 relative overflow-hidden">
@@ -47,7 +47,7 @@ const CTA = () => {
               className="px-8 py-6 text-lg font-semibold bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
               asChild
             >
-              <a href="mailto:contato@winnetmetais.com.br">
+              <a href="mailto:comercial@winnetmetais.com.br">
                 <Mail className="mr-2" />
                 Enviar E-mail
               </a>
@@ -59,14 +59,14 @@ const CTA = () => {
             <div className="flex flex-col items-center gap-6 text-white/90 sm:flex-row sm:justify-center sm:gap-12">
               <div className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
-                <a href="tel:+5511978791851" className="hover:text-accent transition-colors">
-                  +55 (11) 97879-1851
+                <a href="tel:+5511959105205" className="hover:text-accent transition-colors">
+                  +55 (11) 95910-5205
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-5 h-5" />
-                <a href="mailto:contato@winnetmetais.com.br" className="hover:text-accent transition-colors">
-                  contato@winnetmetais.com.br
+                <a href="mailto:comercial@winnetmetais.com.br" className="hover:text-accent transition-colors">
+                  comercial@winnetmetais.com.br
                 </a>
               </div>
               <div className="flex items-center gap-2">
