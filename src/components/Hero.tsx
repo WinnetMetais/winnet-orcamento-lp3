@@ -65,10 +65,10 @@ const Hero = () => {
         <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-accent rounded-full blur-3xl" />
       </div>
 
-      <div className="container relative z-10 px-4 sm:px-6 py-8 sm:py-12 lg:py-20 mx-auto max-w-7xl">
+      <div className="container relative z-10 px-6 sm:px-8 py-8 sm:py-12 lg:py-20 mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           {/* Left Column - Text Content */}
-          <div className="text-center lg:text-left space-y-4 sm:space-y-6">
+          <div className="text-center lg:text-left space-y-4 sm:space-y-6 px-2 sm:px-0">
             {/* Badge */}
             <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 animate-fade-in">
               <Sparkles className="w-3 sm:w-4 h-3 sm:h-4 text-accent flex-shrink-0" />
@@ -78,7 +78,7 @@ const Hero = () => {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl animate-slide-up">
+            <h1 className="text-[1.5rem] font-bold leading-tight text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl animate-slide-up break-words">
               Elegância e Durabilidade
               <span className="block mt-1 sm:mt-2 text-gradient-gold bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent">
                 que Transformam
@@ -87,7 +87,7 @@ const Hero = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-sm leading-relaxed text-white/90 sm:text-base md:text-lg lg:text-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <p className="text-[0.875rem] leading-relaxed text-white/90 sm:text-base md:text-lg lg:text-xl animate-slide-up break-words" style={{ animationDelay: '0.2s' }}>
               Soluções premium em aço inox para <strong>hotéis</strong>, <strong>condomínios</strong> e <strong>resorts</strong> que elevam o padrão de sofisticação do seu espaço.
             </p>
 
