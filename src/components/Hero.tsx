@@ -167,6 +167,9 @@ const Hero = () => {
                             alt={product.name}
                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                             loading="eager"
+                            fetchPriority={index === 0 ? "high" : "auto"}
+                            width="830"
+                            height="830"
                           />
                           
                           {/* Gradient Overlay */}
