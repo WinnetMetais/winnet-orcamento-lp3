@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4 text-accent">Winnet Metais</h3>
             <p className="text-sm text-background/80 mb-4 leading-relaxed">
-              Referência em soluções premium de aço inox para hotéis, condomínios e resorts. Qualidade e sofisticação desde 2008.
+              Referência em soluções premium de aço inox para hotéis, condomínios e resorts. Qualidade e sofisticação desde 2022.
             </p>
             <div className="flex gap-3">
               <a href="#" className="text-background/70 hover:text-accent transition-colors" aria-label="Facebook">
