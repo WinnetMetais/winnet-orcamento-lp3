@@ -65,8 +65,8 @@ const Hero = () => {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl" />
       </div>
 
-      <div className="container relative z-10 px-4 py-20 mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+      <div className="container relative z-10 px-4 py-12 sm:py-16 lg:py-20 mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-7xl mx-auto">
           {/* Left Column - Text Content */}
           <div className="text-center lg:text-left">
             {/* Badge */}
@@ -78,7 +78,7 @@ const Hero = () => {
             </div>
 
             {/* Main Heading */}
-            <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-6xl lg:text-7xl animate-slide-up">
+            <h1 className="mb-6 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl animate-slide-up">
               Elegância e Durabilidade
               <span className="block mt-2 text-gradient-gold bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent">
                 que Transformam
@@ -87,15 +87,15 @@ const Hero = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className="mb-10 text-lg leading-relaxed text-white/90 md:text-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <p className="mb-8 text-base leading-relaxed text-white/90 sm:text-lg md:text-xl animate-slide-up" style={{ animationDelay: '0.2s' }}>
               Soluções premium em aço inox para <strong>hotéis</strong>, <strong>condomínios</strong> e <strong>resorts</strong> que elevam o padrão de sofisticação do seu espaço.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col items-center lg:items-start gap-4 mb-12 sm:flex-row animate-slide-up" style={{ animationDelay: '0.4s' }}>
+            <div className="flex flex-col items-center lg:items-start gap-3 mb-10 sm:flex-row animate-slide-up" style={{ animationDelay: '0.4s' }}>
               <Button 
                 size="lg"
-                className="group px-8 py-6 text-lg font-semibold bg-accent hover:bg-accent/90 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                className="w-full sm:w-auto group px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg font-semibold bg-accent hover:bg-accent/90 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-2xl"
                 asChild
               >
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -107,7 +107,7 @@ const Hero = () => {
               <Button 
                 size="lg"
                 variant="outline"
-                className="px-8 py-6 text-lg font-semibold bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
+                className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg font-semibold bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
                 asChild
               >
                 <a href="#produtos">
@@ -152,7 +152,7 @@ const Hero = () => {
                   <CarouselItem key={index} className="md:basis-1/2 lg:basis-full">
                     <div className="relative group">
                       {/* Product Card */}
-                      <div className="relative overflow-hidden rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-8 hover:bg-white/15 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
+                      <div className="relative overflow-hidden rounded-2xl lg:rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-4 sm:p-6 lg:p-8 hover:bg-white/15 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl">
                         {/* Tag */}
                         <div className="absolute top-4 right-4 z-10">
                           <span className="px-3 py-1 text-xs font-bold rounded-full bg-accent text-foreground shadow-lg">
@@ -167,7 +167,6 @@ const Hero = () => {
                             alt={product.name}
                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                             loading="eager"
-                            fetchPriority={index === 0 ? "high" : "auto"}
                             width="830"
                             height="830"
                           />
@@ -177,12 +176,12 @@ const Hero = () => {
                         </div>
 
                         {/* Product Name */}
-                        <h3 className="text-xl font-bold text-white text-center group-hover:text-accent transition-colors duration-300">
+                        <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white text-center group-hover:text-accent transition-colors duration-300">
                           {product.name}
                         </h3>
 
                         {/* Decorative Line */}
-                        <div className="mt-3 mx-auto w-16 h-1 bg-gradient-to-r from-accent to-yellow-300 rounded-full" />
+                        <div className="mt-2 lg:mt-3 mx-auto w-12 lg:w-16 h-1 bg-gradient-to-r from-accent to-yellow-300 rounded-full" />
                       </div>
 
                       {/* Glow Effect */}
@@ -193,8 +192,8 @@ const Hero = () => {
               </CarouselContent>
               
               {/* Custom Navigation Buttons */}
-              <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-accent hover:text-foreground hover:border-accent transition-all duration-300" />
-              <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-accent hover:text-foreground hover:border-accent transition-all duration-300" />
+              <CarouselPrevious className="hidden sm:flex absolute -left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-accent hover:text-foreground hover:border-accent transition-all duration-300" />
+              <CarouselNext className="hidden sm:flex absolute -right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-accent hover:text-foreground hover:border-accent transition-all duration-300" />
             </Carousel>
 
             {/* Decorative Elements Around Gallery */}
