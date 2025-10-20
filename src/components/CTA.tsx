@@ -47,9 +47,9 @@ const CTA = () => {
               className="px-8 py-6 text-lg font-semibold bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
               asChild
             >
-              <a href="mailto:comercial@winnetmetais.com.br">
-                <Mail className="mr-2" />
-                Enviar E-mail
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <Phone className="mr-2" />
+                Chamar no WhatsApp
               </a>
             </Button>
           </div>
