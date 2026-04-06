@@ -45,13 +45,13 @@ const Hero = () => {
           className="absolute inset-0 z-0 w-full h-full"
           style={{ y: parallaxY }}
         >
-          <HoverSliderImageWrap className="absolute inset-[-20%] w-[140%] h-[140%]">
+          <HoverSliderImageWrap className="absolute inset-[-10%] w-[120%] h-[120%]">
             {slides.map((slide, index) => (
               <HoverSliderImage
                 key={index}
                 index={index}
                 imageUrl={slide.image}
-                className="object-cover object-[center_90%] w-full h-full"
+                className="object-cover object-center w-full h-full"
               />
             ))}
           </HoverSliderImageWrap>
