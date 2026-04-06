@@ -51,7 +51,7 @@ const Hero = () => {
                 key={index}
                 index={index}
                 imageUrl={slide.image}
-                className="object-cover object-[center_60%] w-full h-full"
+                className="object-cover object-[center_90%] w-full h-full"
               />
             ))}
           </HoverSliderImageWrap>
