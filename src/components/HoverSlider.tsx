@@ -94,13 +94,15 @@ interface HoverSliderImageProps {
   index: number;
   imageUrl: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export const HoverSliderImage = ({ index, imageUrl, className }: HoverSliderImageProps) => {
+export const HoverSliderImage = ({ index, imageUrl, className, style }: HoverSliderImageProps) => {
   const { activeSlide } = useHoverSliderContext();
   return (
     <motion.img
       className={`inline-block align-middle ${className || ""}`}
+      style={style}
       transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}
       variants={clipPathVariants}
       initial="hidden"
