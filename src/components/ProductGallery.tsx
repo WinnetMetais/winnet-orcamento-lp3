@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Eye, X } from "lucide-react";
+import { ArrowRight, ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import lixeiraElevador from "@/assets/lixeira-elevador.png";
 import lixeiraHotelCorredor from "@/assets/lixeira-hotel-corredor.png";
-import lixeiraClinicaHospital from "@/assets/lixeira-clinica-hospital.png";
 import placaPisoMolhado from "@/assets/placa-piso-molhado.png";
 import guardaChuvaInox from "@/assets/guarda-chuva-inox.png";
 import bituqueiraExterna from "@/assets/bituqueira-externa.png";
@@ -34,308 +33,207 @@ interface Product {
 }
 
 const products: Product[] = [
-  {
-    id: 1,
-    name: "Lixeira Basculante Redonda",
-    category: "Lixeiras de Lobby",
-    description: "Design redondo elegante e discreto, perfeito para áreas de circulação de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido de alta resistência.",
-    image: lixeiraBasculanteRedonda,
-    tags: ["Aço Inox 430", "Aço Polido", "Alta Durabilidade"],
-    ideal: ["Lobbies de Hotéis", "Recepções", "Áreas Comuns"]
-  },
-  {
-    id: 2,
-    name: "Coletor Cilíndrico Corporativo",
-    category: "Coletores para Corredores",
-    description: "Solução sofisticada para corredores e áreas de trânsito. Fabricada em aço inox 430 com acabamento em aço polido. Tampa basculante de fácil uso e manutenção simplificada.",
-    image: lixeiraHotelCorredor,
-    tags: ["Aço Inox 430", "Aço Polido", "Tampa Basculante"],
-    ideal: ["Corredores", "Áreas de Serviço", "Halls"],
-    additionalCategories: ["Lixeiras de Lobby"]
-  },
-  {
-    id: 3,
-    name: "Lixeira com Tampa para Banheiros",
-    category: "Linha Resorts",
-    description: "Design elegante e discreto para banheiros de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido. Tampa com acionamento suave e silencioso.",
-    image: lixeiraBanheiroResort,
-    tags: ["Aço Inox 430", "Aço Polido", "Design Elegante"],
-    ideal: ["Resorts", "Hotéis", "Spas"]
-  },
-  {
-    id: 4,
-    name: "Cavalete de Sinalização",
-    category: "Sinalização e Segurança",
-    description: "Cavalete dobrável em aço inox com sinalização bilíngue. Essencial para manutenção da segurança em áreas de limpeza.",
-    image: placaPisoMolhado,
-    tags: ["Bilíngue", "Dobrável", "Alta Visibilidade"],
-    ideal: ["Hotéis", "Resorts", "Áreas Úmidas"]
-  },
-  {
-    id: 5,
-    name: "Porta Guarda-Chuvas Premium",
-    category: "Acessórios de Entrada",
-    description: "Design sofisticado com sistema de drenagem integrado. Perfeito para entradas principais de hotéis e condomínios.",
-    image: guardaChuvaInox,
-    tags: ["Drenagem Integrada", "Design Exclusivo", "Grande Capacidade"],
-    ideal: ["Entradas Principais", "Portarias", "Recepções"]
-  },
-  {
-    id: 11,
-    name: "Ensacador de Guarda-Chuvas",
-    category: "Acessórios de Entrada",
-    description: "Solução prática e higiênica para dias chuvosos. Sistema completo com dispenser de 150 saquinhos plásticos. Mantém o ambiente limpo e protegido da umidade.",
-    image: ensacadorGuardaChuvas,
-    tags: ["Inclui 150 Saquinhos", "Sistema Automático", "Higiênico"],
-    ideal: ["Entradas de Hotéis", "Resorts", "Recepções Premium"]
-  },
-  {
-    id: 12,
-    name: "Porta Extintor Premium",
-    category: "Utilitários de Lobby e Corredor",
-    description: "Dupla funcionalidade com design sofisticado em aço inox polido. Suporte para extintor e cesto para descarte, mantendo a elegância do ambiente.",
-    image: portaExtintorLobby,
-    tags: ["Aço Inox Polido", "Dupla Função", "Design Premium"],
-    ideal: ["Lobbies", "Halls Corporativos", "Áreas Nobres"]
-  },
-  {
-    id: 6,
-    name: "Bituqueira para Áreas Externas",
-    category: "Utilitários Externos",
-    description: "Solução elegante para áreas fumantes. Base sólida com cinzeiro superior removível para fácil limpeza.",
-    image: bituqueiraExterna,
-    tags: ["Uso Externo", "Cinzeiro Removível", "Resistente"],
-    ideal: ["Áreas Externas", "Fumódromos", "Jardins"],
-    additionalCategories: ["Acessórios de Entrada", "Linha Resorts"]
-  },
-  {
-    id: 7,
-    name: "Coletor com Rodízios",
-    category: "Linha Móvel",
-    description: "Mobilidade e higiene em um único produto. Fabricada em aço inox 430 com acabamento em aço polido. Rodízios de alta qualidade e alças ergonômicas para transporte eficiente.",
-    image: lixeiraHospitalRodizio,
-    tags: ["Aço Inox 430", "Aço Polido", "Rodízios 360°"],
-    ideal: ["Hospitais", "Clínicas", "Centros Médicos"]
-  },
-  {
-    id: 8,
-    name: "Lixeira de Pedal para Cozinhas",
-    category: "Linha Gastronômica",
-    description: "Design compacto com pedal silencioso. Fabricada em aço inox 430 com acabamento em aço polido. Ideal para cozinhas profissionais que prezam por higiene e praticidade.",
-    image: lixeiraCozinha,
-    tags: ["Aço Inox 430", "Aço Polido", "Pedal Silencioso"],
-    ideal: ["Cozinhas", "Refeitórios", "Áreas de Serviço"]
-  },
-  {
-    id: 9,
-    name: "Lixeira Basculante Quadrada",
-    category: "Elevadores e Espaços Compactos",
-    description: "Design quadrado que otimiza espaços. Fabricada em aço inox 430 com acabamento em aço polido. Tampa basculante discreta, perfeita para elevadores e áreas reduzidas.",
-    image: lixeiraElevador,
-    tags: ["Aço Inox 430", "Aço Polido", "Design Compacto"],
-    ideal: ["Elevadores", "Halls", "Corredores Estreitos"]
-  },
-  {
-    id: 10,
-    name: "Lixeira Premium para Recepção",
-    category: "Linha Executiva",
-    description: "Elegância e funcionalidade para sua recepção. Fabricada em aço inox 430 com acabamento em aço polido premium. Tampa com fechamento suave.",
-    image: lixeiraRecepcao,
-    tags: ["Aço Inox 430", "Aço Polido", "Fechamento Suave"],
-    ideal: ["Recepções", "Salas VIP", "Áreas Executivas"]
-  },
-  {
-    id: 13,
-    name: "Lixeira com Pedal para Banheiro",
-    category: "Linha Resorts",
-    description: "Lixeira cilíndrica com pedal, acabamento espelhado em aço inox 430, perfeita para banheiros sofisticados de hotéis e resorts.",
-    image: lixeiraPedalBanheiro,
-    tags: ["Aço Inox 430", "Com Pedal", "Design Moderno"],
-    ideal: ["Banheiros de Hotéis", "Resorts", "Residências de Alto Padrão"]
-  },
-  {
-    id: 14,
-    name: "Conjunto Porta Extintor e Placa",
-    category: "Acessórios de Entrada",
-    description: "Conjunto completo com porta extintor, placa de sinalização 'Piso Molhado' e porta guarda-chuvas em aço inox premium.",
-    image: conjuntoPortaExtintorPlaca,
-    tags: ["Kit Completo", "Multifuncional", "Segurança"],
-    ideal: ["Entradas", "Lobbies", "Áreas de Circulação"]
-  },
-  {
-    id: 15,
-    name: "Bituqueira de Parede Externa",
-    category: "Utilitários Externos",
-    description: "Bituqueira cilíndrica para fixação em parede, ideal para áreas externas de hotéis e resorts. Design moderno e discreto.",
-    image: bituqueiraParede,
-    tags: ["Aço Inox 430", "Fixação em Parede", "Resistente"],
-    ideal: ["Áreas Externas", "Entradas", "Varandas"],
-    additionalCategories: ["Acessórios de Entrada", "Linha Resorts"]
-  },
-  {
-    id: 16,
-    name: "Conjunto Coleta Seletiva Premium",
-    category: "Linha Sustentável",
-    description: "Conjunto completo de coleta seletiva em aço inox 430 com aros coloridos para identificação. Sistema de 3 coletores para vidro, plástico e papel. Design cilíndrico sofisticado ideal para áreas corporativas e ambientes premium.",
-    image: coletaSeletivaInox,
-    tags: ["Aço Inox 430", "3 Coletores", "Sustentável", "Aros Coloridos"],
-    ideal: ["Áreas Comuns", "Escritórios", "Lobbies", "Refeitórios"],
-    additionalCategories: ["Utilitários de Lobby e Corredor"]
-  }
+  { id: 1, name: "Lixeira Basculante Redonda", category: "Lixeiras de Lobby", description: "Design redondo elegante e discreto, perfeito para áreas de circulação de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido de alta resistência.", image: lixeiraBasculanteRedonda, tags: ["Aço Inox 430", "Aço Polido", "Alta Durabilidade"], ideal: ["Lobbies de Hotéis", "Recepções", "Áreas Comuns"] },
+  { id: 2, name: "Coletor Cilíndrico Corporativo", category: "Coletores para Corredores", description: "Solução sofisticada para corredores e áreas de trânsito. Fabricada em aço inox 430 com acabamento em aço polido.", image: lixeiraHotelCorredor, tags: ["Aço Inox 430", "Aço Polido", "Tampa Basculante"], ideal: ["Corredores", "Áreas de Serviço", "Halls"], additionalCategories: ["Lixeiras de Lobby"] },
+  { id: 3, name: "Lixeira com Tampa para Banheiros", category: "Linha Resorts", description: "Design elegante e discreto para banheiros de alto padrão. Fabricada em aço inox 430 com acabamento em aço polido.", image: lixeiraBanheiroResort, tags: ["Aço Inox 430", "Aço Polido", "Design Elegante"], ideal: ["Resorts", "Hotéis", "Spas"] },
+  { id: 4, name: "Cavalete de Sinalização", category: "Sinalização e Segurança", description: "Cavalete dobrável em aço inox com sinalização bilíngue. Essencial para manutenção da segurança.", image: placaPisoMolhado, tags: ["Bilíngue", "Dobrável", "Alta Visibilidade"], ideal: ["Hotéis", "Resorts", "Áreas Úmidas"] },
+  { id: 5, name: "Porta Guarda-Chuvas Premium", category: "Acessórios de Entrada", description: "Design sofisticado com sistema de drenagem integrado. Perfeito para entradas principais.", image: guardaChuvaInox, tags: ["Drenagem Integrada", "Design Exclusivo", "Grande Capacidade"], ideal: ["Entradas Principais", "Portarias", "Recepções"] },
+  { id: 11, name: "Ensacador de Guarda-Chuvas", category: "Acessórios de Entrada", description: "Solução prática e higiênica para dias chuvosos. Sistema completo com dispenser de 150 saquinhos plásticos.", image: ensacadorGuardaChuvas, tags: ["Inclui 150 Saquinhos", "Sistema Automático", "Higiênico"], ideal: ["Entradas de Hotéis", "Resorts", "Recepções Premium"] },
+  { id: 12, name: "Porta Extintor Premium", category: "Utilitários de Lobby e Corredor", description: "Dupla funcionalidade com design sofisticado em aço inox polido.", image: portaExtintorLobby, tags: ["Aço Inox Polido", "Dupla Função", "Design Premium"], ideal: ["Lobbies", "Halls Corporativos", "Áreas Nobres"] },
+  { id: 6, name: "Bituqueira para Áreas Externas", category: "Utilitários Externos", description: "Solução elegante para áreas fumantes. Base sólida com cinzeiro superior removível.", image: bituqueiraExterna, tags: ["Uso Externo", "Cinzeiro Removível", "Resistente"], ideal: ["Áreas Externas", "Fumódromos", "Jardins"], additionalCategories: ["Acessórios de Entrada", "Linha Resorts"] },
+  { id: 7, name: "Coletor com Rodízios", category: "Linha Móvel", description: "Mobilidade e higiene em um único produto. Rodízios de alta qualidade e alças ergonômicas.", image: lixeiraHospitalRodizio, tags: ["Aço Inox 430", "Aço Polido", "Rodízios 360°"], ideal: ["Hospitais", "Clínicas", "Centros Médicos"] },
+  { id: 8, name: "Lixeira de Pedal para Cozinhas", category: "Linha Gastronômica", description: "Design compacto com pedal silencioso. Ideal para cozinhas profissionais.", image: lixeiraCozinha, tags: ["Aço Inox 430", "Aço Polido", "Pedal Silencioso"], ideal: ["Cozinhas", "Refeitórios", "Áreas de Serviço"] },
+  { id: 9, name: "Lixeira Basculante Quadrada", category: "Elevadores e Espaços Compactos", description: "Design quadrado que otimiza espaços. Tampa basculante discreta.", image: lixeiraElevador, tags: ["Aço Inox 430", "Aço Polido", "Design Compacto"], ideal: ["Elevadores", "Halls", "Corredores Estreitos"] },
+  { id: 10, name: "Lixeira Premium para Recepção", category: "Linha Executiva", description: "Elegância e funcionalidade para sua recepção. Tampa com fechamento suave.", image: lixeiraRecepcao, tags: ["Aço Inox 430", "Aço Polido", "Fechamento Suave"], ideal: ["Recepções", "Salas VIP", "Áreas Executivas"] },
+  { id: 13, name: "Lixeira com Pedal para Banheiro", category: "Linha Resorts", description: "Lixeira cilíndrica com pedal, acabamento espelhado em aço inox 430.", image: lixeiraPedalBanheiro, tags: ["Aço Inox 430", "Com Pedal", "Design Moderno"], ideal: ["Banheiros de Hotéis", "Resorts", "Residências de Alto Padrão"] },
+  { id: 14, name: "Conjunto Porta Extintor e Placa", category: "Acessórios de Entrada", description: "Conjunto completo com porta extintor, placa de sinalização e porta guarda-chuvas.", image: conjuntoPortaExtintorPlaca, tags: ["Kit Completo", "Multifuncional", "Segurança"], ideal: ["Entradas", "Lobbies", "Áreas de Circulação"] },
+  { id: 15, name: "Bituqueira de Parede Externa", category: "Utilitários Externos", description: "Bituqueira cilíndrica para fixação em parede, ideal para áreas externas.", image: bituqueiraParede, tags: ["Aço Inox 430", "Fixação em Parede", "Resistente"], ideal: ["Áreas Externas", "Entradas", "Varandas"], additionalCategories: ["Acessórios de Entrada", "Linha Resorts"] },
+  { id: 16, name: "Conjunto Coleta Seletiva Premium", category: "Linha Sustentável", description: "Conjunto completo de coleta seletiva em aço inox 430 com aros coloridos para identificação.", image: coletaSeletivaInox, tags: ["Aço Inox 430", "3 Coletores", "Sustentável", "Aros Coloridos"], ideal: ["Áreas Comuns", "Escritórios", "Lobbies", "Refeitórios"], additionalCategories: ["Utilitários de Lobby e Corredor"] },
 ];
+
+const categories = ["all", "Lixeiras de Lobby", "Linha Resorts", "Acessórios de Entrada", "Utilitários de Lobby e Corredor", "Linha Móvel"];
 
 const ProductGallery = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [filter, setFilter] = useState<string>("all");
+  const [filter, setFilter] = useState("all");
 
-  const categories = ["all", "Lixeiras de Lobby", "Linha Resorts", "Acessórios de Entrada", "Utilitários de Lobby e Corredor", "Linha Móvel"];
-  
-  const filteredProducts = filter === "all" 
-    ? products 
-    : products.filter(p => p.category === filter || (p.additionalCategories && p.additionalCategories.includes(filter)));
+  const filteredProducts = filter === "all"
+    ? products
+    : products.filter(p => p.category === filter || p.additionalCategories?.includes(filter));
 
-  const whatsappMessage = (productName: string) => 
-    encodeURIComponent(`Olá! Gostaria de solicitar um orçamento para: ${productName}. Vim através da Landing Page Premium.`);
+  const whatsappMessage = (name: string) =>
+    encodeURIComponent(`Olá! Gostaria de solicitar um orçamento para: ${name}. Vim através da Landing Page Premium.`);
+
+  const handleNext = () => {
+    if (!selectedProduct) return;
+    const idx = products.findIndex(p => p.id === selectedProduct.id);
+    setSelectedProduct(products[(idx + 1) % products.length]);
+  };
+  const handlePrev = () => {
+    if (!selectedProduct) return;
+    const idx = products.findIndex(p => p.id === selectedProduct.id);
+    setSelectedProduct(products[(idx - 1 + products.length) % products.length]);
+  };
 
   return (
-    <section id="produtos" className="py-20 bg-muted/30">
-      <div className="container px-4 mx-auto">
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto mb-16 text-center">
-          <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">
+    <section id="produtos" className="relative w-full bg-background px-4 py-24 z-10">
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 text-center"
+        >
+          <Badge className="mb-4 bg-secondary text-muted-foreground border-border">
             Portfólio Premium
           </Badge>
-          <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
+          <h2 className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
             Soluções Completas em
             <span className="block text-gradient-gold mt-2">Aço Inox</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Cada produto é projetado para aliar sofisticação, durabilidade e funcionalidade aos ambientes mais exigentes.
+          <p className="mx-auto max-w-2xl text-muted-foreground">
+            Cada produto é projetado para aliar sofisticação, durabilidade e funcionalidade.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {/* Filter Tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mb-12 flex flex-wrap justify-center gap-2"
+        >
           {categories.map((cat) => (
             <Button
               key={cat}
               variant={filter === cat ? "default" : "outline"}
+              size="sm"
               onClick={() => setFilter(cat)}
-              className={filter === cat ? "bg-primary text-primary-foreground" : ""}
+              className={filter === cat ? "bg-foreground text-background hover:bg-foreground/90" : "border-border text-muted-foreground hover:bg-secondary hover:text-foreground"}
             >
-              {cat === "all" ? "Todos os Produtos" : cat}
+              {cat === "all" ? "Todos" : cat}
             </Button>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Products Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {filteredProducts.map((product, index) => (
-            <div
-              key={product.id}
-              className="group relative overflow-hidden rounded-2xl bg-card border border-border hover-lift cursor-pointer animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={() => setSelectedProduct(product)}
-            >
-              {/* Image Container */}
-              <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-secondary/50 to-secondary/20">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                  width="378"
-                  height="378"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex gap-3">
-                    <Button size="sm" className="bg-white text-primary hover:bg-white/90">
-                      <Eye className="w-4 h-4 mr-2" />
-                      Ver Detalhes
-                    </Button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Product Info */}
-              <div className="p-6">
-                <Badge variant="outline" className="mb-3 text-xs">
-                  {product.category}
-                </Badge>
-                <h3 className="mb-2 text-xl font-bold group-hover:text-primary transition-colors">
-                  {product.name}
-                </h3>
-                <p className="mb-4 text-sm text-muted-foreground line-clamp-2">
-                  {product.description}
-                </p>
-                
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {product.tags.slice(0, 2).map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Product Detail Modal */}
-        <Dialog open={!!selectedProduct} onOpenChange={() => setSelectedProduct(null)}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-            {selectedProduct && (
-              <>
-                <DialogHeader>
-                  <DialogTitle className="text-2xl font-bold">
-                    {selectedProduct.name}
-                  </DialogTitle>
-                </DialogHeader>
-                
-                <div className="grid gap-6 md:grid-cols-2">
-                  {/* Image */}
-                  <div className="relative aspect-square rounded-xl overflow-hidden bg-secondary/20">
+        {/* Product Grid */}
+        <motion.div layout className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <AnimatePresence mode="popLayout">
+            {filteredProducts.map((product, index) => (
+              <motion.div
+                key={product.id}
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3, delay: index * 0.03 }}
+              >
+                <div
+                  className="group relative cursor-pointer overflow-hidden rounded-xl border border-border bg-card/50 backdrop-blur-sm transition-all hover:border-muted-foreground/30 hover:shadow-[0_0_30px_hsl(0_0%_100%/0.05)]"
+                  onClick={() => setSelectedProduct(product)}
+                >
+                  <div className="relative aspect-square overflow-hidden">
                     <img
-                      src={selectedProduct.image}
-                      alt={selectedProduct.name}
-                      className="w-full h-full object-cover"
+                      src={product.image}
+                      alt={product.name}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
                     />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-background/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ZoomIn className="mb-3 h-8 w-8 text-muted-foreground" />
+                      <h3 className="mb-2 text-center text-lg font-semibold text-foreground px-4">
+                        {product.name}
+                      </h3>
+                      <Badge className="bg-secondary text-muted-foreground border-border">{product.category}</Badge>
+                    </div>
                   </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Lightbox Modal */}
+        <AnimatePresence>
+          {selectedProduct && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 p-4 backdrop-blur-md"
+              onClick={() => setSelectedProduct(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative max-h-[90vh] max-w-5xl w-full overflow-y-auto"
+              >
+                {/* Close */}
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="absolute right-0 -top-12 md:-right-12 text-muted-foreground hover:bg-secondary hover:text-foreground z-10"
+                  onClick={() => setSelectedProduct(null)}
+                >
+                  <X className="h-6 w-6" />
+                </Button>
+
+                {/* Prev / Next */}
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="absolute left-2 md:-left-14 top-1/2 -translate-y-1/2 text-muted-foreground hover:bg-secondary hover:text-foreground"
+                  onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+                >
+                  <ChevronLeft className="h-8 w-8" />
+                </Button>
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="absolute right-2 md:-right-14 top-1/2 -translate-y-1/2 text-muted-foreground hover:bg-secondary hover:text-foreground"
+                  onClick={(e) => { e.stopPropagation(); handleNext(); }}
+                >
+                  <ChevronRight className="h-8 w-8" />
+                </Button>
+
+                <div className="grid gap-6 md:grid-cols-2 bg-card border border-border rounded-2xl p-6 md:p-8">
+                  {/* Image */}
+                  <motion.div
+                    key={selectedProduct.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="aspect-square rounded-xl overflow-hidden bg-secondary"
+                  >
+                    <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
+                  </motion.div>
 
                   {/* Details */}
                   <div className="flex flex-col">
                     <Badge className="self-start mb-4 bg-accent/10 text-accent border-accent/20">
                       {selectedProduct.category}
                     </Badge>
-                    
-                    <p className="mb-6 text-muted-foreground leading-relaxed">
-                      {selectedProduct.description}
-                    </p>
+                    <h3 className="text-2xl font-bold mb-4">{selectedProduct.name}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">{selectedProduct.description}</p>
 
-                    {/* Tags */}
                     <div className="mb-6">
-                      <h4 className="mb-3 text-sm font-semibold">Características:</h4>
+                      <h4 className="text-sm font-semibold mb-3">Características:</h4>
                       <div className="flex flex-wrap gap-2">
-                        {selectedProduct.tags.map((tag) => (
-                          <Badge key={tag} variant="secondary">
-                            {tag}
-                          </Badge>
+                        {selectedProduct.tags.map(tag => (
+                          <Badge key={tag} className="bg-secondary text-muted-foreground border-border">{tag}</Badge>
                         ))}
                       </div>
                     </div>
 
-                    {/* Ideal For */}
                     <div className="mb-6">
-                      <h4 className="mb-3 text-sm font-semibold">Ideal Para:</h4>
+                      <h4 className="text-sm font-semibold mb-3">Ideal Para:</h4>
                       <ul className="space-y-2">
-                        {selectedProduct.ideal.map((place) => (
+                        {selectedProduct.ideal.map(place => (
                           <li key={place} className="flex items-center text-sm text-muted-foreground">
                             <div className="w-1.5 h-1.5 rounded-full bg-accent mr-2" />
                             {place}
@@ -344,27 +242,21 @@ const ProductGallery = () => {
                       </ul>
                     </div>
 
-                    {/* CTA */}
-                    <Button 
-                      size="lg" 
+                    <Button
+                      size="lg"
                       className="mt-auto bg-accent hover:bg-accent/90 text-accent-foreground"
                       asChild
                     >
-                      <a 
-                        href={`https://wa.me/5511959105205?text=${whatsappMessage(selectedProduct.name)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Solicitar Orçamento
-                        <ArrowRight className="ml-2" />
+                      <a href={`https://wa.me/5511959105205?text=${whatsappMessage(selectedProduct.name)}`} target="_blank" rel="noopener noreferrer">
+                        Solicitar Orçamento <ArrowRight className="ml-2" />
                       </a>
                     </Button>
                   </div>
                 </div>
-              </>
-            )}
-          </DialogContent>
-        </Dialog>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

@@ -1,216 +1,100 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Award, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
+  HoverSlider,
+  TextStaggerHover,
+  HoverSliderImageWrap,
+  HoverSliderImage,
+} from "@/components/HoverSlider";
 
-import lixeiraElevador from "@/assets/lixeira-elevador.png";
-import lixeiraRecepcao from "@/assets/lixeira-recepcao.png";
-import guardaChuvaInox from "@/assets/guarda-chuva-inox.png";
-import lixeiraHotelCorredor from "@/assets/lixeira-hotel-corredor.png";
-import bituqueiraExterna from "@/assets/bituqueira-externa.png";
+import ambientePiscina from "@/assets/ambiente-piscina.png";
+import ambienteLobby from "@/assets/ambiente-lobby.png";
+import ambienteVaranda from "@/assets/ambiente-varanda.png";
+import ambienteBanheiro from "@/assets/ambiente-banheiro.png";
+
+const slides = [
+  { title: "ELEGÂNCIA EM INOX", image: ambienteBanheiro },
+  { title: "AMBIENTES PREMIUM", image: ambienteLobby },
+  { title: "DESIGN SOFISTICADO", image: ambienteVaranda },
+  { title: "ÁREAS EXTERNAS", image: ambientePiscina },
+];
 
 const Hero = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
+  const rotate = useTransform(scrollYProgress, [0, 0.5], [0, -3]);
+
   const whatsappMessage = encodeURIComponent(
     "Olá! Vim através da Landing Page Premium e gostaria de solicitar um orçamento para meu hotel/condomínio/resort."
   );
   const whatsappUrl = `https://wa.me/5511959105205?text=${whatsappMessage}`;
 
-  const featuredProducts = [
-    {
-      name: "Lixeira Basculante Quadrada",
-      image: lixeiraElevador,
-      tag: "Mais Vendida"
-    },
-    {
-      name: "Lixeira Recepção Executiva",
-      image: lixeiraRecepcao,
-      tag: "Design Premium"
-    },
-    {
-      name: "Porta Guarda-Chuvas",
-      image: guardaChuvaInox,
-      tag: "Exclusivo"
-    },
-    {
-      name: "Coletor para Corredores",
-      image: lixeiraHotelCorredor,
-      tag: "Alta Durabilidade"
-    },
-    {
-      name: "Bituqueira Externa",
-      image: bituqueiraExterna,
-      tag: "Uso Externo"
-    }
-  ];
-
   return (
-    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {/* Background Gradient */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-br from-primary via-primary-hover to-primary/90"
-        style={{ 
-          backgroundImage: 'var(--gradient-hero)',
-        }}
-      />
-      
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-5 sm:opacity-10">
-        <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-white rounded-full blur-3xl" />
-        <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-accent rounded-full blur-3xl" />
-      </div>
+    <motion.section
+      ref={ref}
+      style={{ scale, rotate }}
+      className="sticky top-0 h-screen w-full flex flex-col items-center justify-center bg-background overflow-hidden z-0"
+    >
+      <HoverSlider className="relative w-full h-full flex items-center justify-center">
+        {/* Background Images */}
+        <HoverSliderImageWrap className="absolute inset-0 z-0 w-full h-full">
+          {slides.map((slide, index) => (
+            <HoverSliderImage
+              key={index}
+              index={index}
+              imageUrl={slide.image}
+              className="object-cover w-full h-full scale-105"
+            />
+          ))}
+        </HoverSliderImageWrap>
 
-      <div className="container relative z-10 px-6 sm:px-8 lg:px-6 py-6 sm:py-12 lg:py-20 mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <div className="text-center lg:text-left space-y-3 sm:space-y-5 lg:space-y-6 max-w-md mx-auto lg:max-w-none lg:mx-0">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 animate-fade-in">
-              <Sparkles className="w-3 sm:w-4 h-3 sm:h-4 text-accent flex-shrink-0" />
-              <span className="text-xs sm:text-sm font-medium text-white leading-tight">
-                Referência em Soluções Premium
-              </span>
-            </div>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-background/50 z-10 pointer-events-none" />
 
-            {/* Main Heading */}
-            <h1 className="text-[1.65rem] leading-[1.2] font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl animate-slide-up">
-              Elegância e Durabilidade
-              <span className="block mt-1.5 sm:mt-2 text-gradient-gold bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent">
-                que Transformam
-              </span>
-              <span className="block mt-1.5 sm:mt-2">Seu Ambiente</span>
-            </h1>
+        {/* Content */}
+        <div className="relative z-20 flex flex-col items-center justify-center gap-4 md:gap-6 w-full px-4">
+          {slides.map((slide, index) => (
+            <TextStaggerHover
+              key={index}
+              index={index}
+              text={slide.title}
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter uppercase"
+            />
+          ))}
 
-            {/* Subtitle */}
-            <p className="text-[0.9rem] leading-relaxed text-white/90 sm:text-base md:text-lg lg:text-xl animate-slide-up max-w-lg mx-auto lg:mx-0" style={{ animationDelay: '0.2s' }}>
-              Soluções premium em aço inox para <strong>hotéis</strong>, <strong>condomínios</strong> e <strong>resorts</strong> que elevam o padrão de sofisticação do seu espaço.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              <Button 
-                size="lg"
-                className="w-full sm:w-auto group px-6 sm:px-7 lg:px-8 py-5 sm:py-5 lg:py-6 text-[0.9rem] sm:text-base lg:text-lg font-semibold bg-accent hover:bg-accent/90 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-                asChild
-              >
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                  Solicitar Orçamento
-                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
-              
-              <Button 
-                size="lg"
-                variant="outline"
-                className="w-full sm:w-auto px-6 sm:px-7 lg:px-8 py-5 sm:py-5 lg:py-6 text-[0.9rem] sm:text-base lg:text-lg font-semibold bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
-                asChild
-              >
-                <a href="#produtos" className="flex items-center justify-center">
-                  Ver Produtos
-                </a>
-              </Button>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 lg:gap-6 pt-4 sm:pt-6 lg:pt-8 border-t border-white/20 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              <div className="flex items-center gap-1.5 sm:gap-2 text-white/90">
-                <Shield className="w-4 sm:w-5 h-4 sm:h-5 text-accent flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium whitespace-nowrap">Garantia</span>
-              </div>
-              <div className="flex items-center gap-1.5 sm:gap-2 text-white/90">
-                <Award className="w-4 sm:w-5 h-4 sm:h-5 text-accent flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium whitespace-nowrap">+2 Anos</span>
-              </div>
-              <div className="flex items-center gap-1.5 sm:gap-2 text-white/90">
-                <Sparkles className="w-4 sm:w-5 h-4 sm:h-5 text-accent flex-shrink-0" />
-                <span className="text-xs sm:text-sm font-medium whitespace-nowrap">Personalizável</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Product Gallery Carousel */}
-          <div className="relative animate-fade-in mt-8 sm:mt-10 lg:mt-0 max-w-[280px] sm:max-w-none mx-auto" style={{ animationDelay: '0.3s' }}>
-            <Carousel
-              opts={{
-                align: "center",
-                loop: true,
-              }}
-              plugins={[
-                Autoplay({
-                  delay: 3000,
-                }),
-              ]}
-              className="w-full"
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 mt-6 md:mt-10">
+            <Button
+              size="lg"
+              className="group px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold bg-accent hover:bg-accent/90 text-accent-foreground transition-all duration-300 hover:scale-105"
+              asChild
             >
-              <CarouselContent className="-ml-2 sm:-ml-3 md:-ml-4">
-                {featuredProducts.map((product, index) => (
-                  <CarouselItem key={index} className="pl-2 sm:pl-3 md:pl-4 basis-full sm:basis-1/2 lg:basis-full">
-                    <div className="relative group h-full">
-                      {/* Product Card */}
-                      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl lg:rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 hover:bg-white/15 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl h-full">
-                        {/* Tag */}
-                        <div className="absolute top-2 sm:top-3 lg:top-4 right-2 sm:right-3 lg:right-4 z-10">
-                          <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 text-[9px] sm:text-xs font-bold rounded-full bg-accent text-foreground shadow-lg whitespace-nowrap">
-                            {product.tag}
-                          </span>
-                        </div>
-
-                        {/* Product Image */}
-                        <div className="relative aspect-square mb-2 sm:mb-3 lg:mb-4 overflow-hidden rounded-lg sm:rounded-xl lg:rounded-2xl bg-gradient-to-br from-white/20 to-white/5">
-                          <img
-                            src={product.image}
-                            alt={product.name}
-                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                            loading="eager"
-                            fetchPriority={index === 0 ? "high" : "auto"}
-                            width="830"
-                            height="830"
-                          />
-                          
-                          {/* Gradient Overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        </div>
-
-                        {/* Product Name */}
-                        <h3 className="text-xs sm:text-sm md:text-base lg:text-base xl:text-lg font-bold text-white text-center group-hover:text-accent transition-colors duration-300 leading-tight">
-                          {product.name}
-                        </h3>
-
-                        {/* Decorative Line */}
-                        <div className="mt-2 sm:mt-2 lg:mt-3 mx-auto w-10 sm:w-12 lg:w-12 xl:w-16 h-0.5 sm:h-1 bg-gradient-to-r from-accent to-yellow-300 rounded-full" />
-                      </div>
-
-                      {/* Glow Effect */}
-                      <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-accent/20 to-primary/20 rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              
-              {/* Custom Navigation Buttons */}
-              <CarouselPrevious className="hidden md:flex absolute -left-3 lg:-left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-accent hover:text-foreground hover:border-accent transition-all duration-300 w-8 h-8 lg:w-10 lg:h-10" />
-              <CarouselNext className="hidden md:flex absolute -right-3 lg:-right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-accent hover:text-foreground hover:border-accent transition-all duration-300 w-8 h-8 lg:w-10 lg:h-10" />
-            </Carousel>
-
-            {/* Decorative Elements Around Gallery */}
-            <div className="hidden sm:block absolute -top-4 sm:-top-6 -left-4 sm:-left-6 w-16 sm:w-24 h-16 sm:h-24 bg-accent/30 rounded-full blur-2xl animate-pulse" />
-            <div className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 w-20 sm:w-32 h-20 sm:h-32 bg-primary/30 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                Solicitar Orçamento
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold glass-pill text-foreground hover:text-foreground"
+              asChild
+            >
+              <a href="#produtos" className="flex items-center">Ver Produtos</a>
+            </Button>
           </div>
         </div>
-      </div>
+      </HoverSlider>
 
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto" preserveAspectRatio="none">
-          <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" fill="hsl(var(--background))"/>
-        </svg>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center text-muted-foreground animate-bounce">
+        <span className="text-xs tracking-widest uppercase mb-2 font-semibold">Scroll Down</span>
+        <ChevronDown className="w-5 h-5" />
       </div>
-    </section>
+    </motion.section>
   );
 };
 
