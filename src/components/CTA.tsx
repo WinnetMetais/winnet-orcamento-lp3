@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const CTA = () => {
   const whatsappMessage = encodeURIComponent(
@@ -8,30 +9,33 @@ const CTA = () => {
   const whatsappUrl = `https://wa.me/5511959105205?text=${whatsappMessage}`;
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary via-primary-hover to-primary/90 relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
-        <div className="absolute top-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-72 h-72 bg-accent rounded-full blur-3xl" />
-      </div>
+    <section className="py-24 bg-background relative overflow-hidden z-10">
+      {/* Radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary/30 via-background to-background pointer-events-none" />
 
       <div className="container relative z-10 px-4 mx-auto">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <h2 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold text-glow">
             Pronto para Elevar o Padrão
-            <span className="block mt-2 text-gradient-gold bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent">
+            <span className="block mt-2 text-gradient-gold">
               do Seu Empreendimento?
             </span>
           </h2>
-          <p className="max-w-2xl mx-auto mb-10 text-xl text-white/90 leading-relaxed">
+          <p className="max-w-2xl mx-auto mb-10 text-lg md:text-xl text-muted-foreground leading-relaxed">
             Fale com nossos especialistas e descubra como nossas soluções premium em aço inox podem transformar seus ambientes.
           </p>
 
-          {/* Main CTA */}
+          {/* CTA Buttons */}
           <div className="flex flex-col items-center gap-4 mb-12 sm:flex-row sm:justify-center">
-            <Button 
+            <Button
               size="lg"
-              className="group px-8 py-6 text-lg font-semibold bg-accent hover:bg-accent/90 text-foreground transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              className="group px-8 py-6 text-lg font-semibold bg-accent hover:bg-accent/90 text-accent-foreground transition-all duration-300 hover:scale-105"
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -40,11 +44,10 @@ const CTA = () => {
                 <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
-            
-            <Button 
+
+            <Button
               size="lg"
-              variant="outline"
-              className="px-8 py-6 text-lg font-semibold bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-all duration-300"
+              className="px-8 py-6 text-lg font-semibold glass-pill text-foreground hover:text-foreground"
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -55,8 +58,8 @@ const CTA = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="pt-8 border-t border-white/20">
-            <div className="flex flex-col items-center gap-6 text-white/90 sm:flex-row sm:justify-center sm:gap-12">
+          <div className="pt-8 border-t border-border">
+            <div className="flex flex-col items-center gap-6 text-muted-foreground sm:flex-row sm:justify-center sm:gap-12">
               <div className="flex items-center gap-2">
                 <Phone className="w-5 h-5" />
                 <a href="tel:+5511959105205" className="hover:text-accent transition-colors">
@@ -75,7 +78,7 @@ const CTA = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

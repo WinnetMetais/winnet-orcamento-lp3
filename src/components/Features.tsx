@@ -1,5 +1,5 @@
 import { Shield, Zap, Sparkles, Award, Wrench, Leaf } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const features = [
   {
@@ -36,39 +36,46 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background relative z-10">
       <div className="container px-4 mx-auto">
-        <div className="max-w-3xl mx-auto mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold md:text-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto mb-16 text-center"
+        >
+          <h2 className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold">
             Por que Escolher a
             <span className="block text-gradient-gold mt-2">Winnet Metais?</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Excelência em cada detalhe, do projeto à entrega. Soluções que elevam o padrão do seu negócio.
+            Excelência em cada detalhe, do projeto à entrega.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <Card 
-                key={index} 
-                className="group border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className="group rounded-xl border border-border bg-card/50 backdrop-blur-sm p-6 hover:border-muted-foreground/30 hover:shadow-[0_0_30px_hsl(0_0%_100%/0.03)] transition-all duration-300 hover:-translate-y-1"
               >
-                <CardContent className="p-6">
-                  <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-300">
-                    <Icon className="w-7 h-7 text-primary group-hover:text-accent transition-colors duration-300" />
-                  </div>
-                  <h3 className="mb-3 text-xl font-bold group-hover:text-primary transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
+                <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-secondary group-hover:bg-accent/20 transition-all duration-300">
+                  <Icon className="w-7 h-7 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
+                </div>
+                <h3 className="mb-3 text-xl font-bold group-hover:text-accent transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
             );
           })}
         </div>
