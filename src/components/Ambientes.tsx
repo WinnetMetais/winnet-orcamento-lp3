@@ -37,7 +37,7 @@ const Ambientes = () => {
           <span className="text-muted-foreground">Sofisticação em cada detalhe.</span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 h-auto md:h-[60vh]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 h-auto md:h-[60vh]">
           {ambientes.map((amb, index) => (
             <div
               key={index}
@@ -46,7 +46,7 @@ const Ambientes = () => {
               <img
                 src={amb.image}
                 alt={amb.title}
-                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                className="object-cover object-bottom w-full h-full transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
