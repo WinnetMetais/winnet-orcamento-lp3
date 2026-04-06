@@ -26,6 +26,7 @@ const Hero = () => {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
   const rotate = useTransform(scrollYProgress, [0, 0.5], [0, -3]);
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   const whatsappMessage = encodeURIComponent(
     "Olá! Vim através da Landing Page Premium e gostaria de solicitar um orçamento para meu hotel/condomínio/resort."
@@ -40,16 +41,21 @@ const Hero = () => {
     >
       <HoverSlider className="relative w-full h-full flex items-center justify-center">
         {/* Background Images */}
-        <HoverSliderImageWrap className="absolute inset-0 z-0 w-full h-full">
-          {slides.map((slide, index) => (
-            <HoverSliderImage
-              key={index}
-              index={index}
-              imageUrl={slide.image}
-              className="object-cover object-center w-full h-full scale-[0.85]"
-            />
-          ))}
-        </HoverSliderImageWrap>
+        <motion.div
+          className="absolute inset-0 z-0 w-full h-full"
+          style={{ y: parallaxY }}
+        >
+          <HoverSliderImageWrap className="absolute inset-[-20%] w-[140%] h-[140%]">
+            {slides.map((slide, index) => (
+              <HoverSliderImage
+                key={index}
+                index={index}
+                imageUrl={slide.image}
+                className="object-cover object-top w-full h-full"
+              />
+            ))}
+          </HoverSliderImageWrap>
+        </motion.div>
 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-background/50 z-10 pointer-events-none" />
