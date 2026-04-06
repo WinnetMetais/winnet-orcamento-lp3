@@ -40,13 +40,13 @@ const Hero = () => {
     >
       <HoverSlider className="relative w-full h-full flex items-center justify-center">
         {/* Background Images */}
-        <HoverSliderImageWrap className="absolute inset-0 z-0 w-full h-full bg-background">
+        <HoverSliderImageWrap className="absolute inset-0 z-0 w-full h-full">
           {slides.map((slide, index) => (
             <HoverSliderImage
               key={index}
               index={index}
               imageUrl={slide.image}
-              className="object-contain w-full h-full"
+              className="object-cover object-center w-full h-full scale-[0.85]"
             />
           ))}
         </HoverSliderImageWrap>
