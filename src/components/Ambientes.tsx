@@ -5,12 +5,14 @@ import ambientePiscina from "@/assets/ambiente-piscina.png";
 import ambienteLobby from "@/assets/ambiente-lobby.png";
 import ambienteVaranda from "@/assets/ambiente-varanda.png";
 import ambienteBanheiro from "@/assets/ambiente-banheiro.png";
+import ambienteHall from "@/assets/ambiente-hall.png";
 
 const ambientes = [
   { title: "Banheiros Premium", image: ambienteBanheiro },
   { title: "Lobbies & Recepções", image: ambienteLobby },
   { title: "Varandas & Terraços", image: ambienteVaranda },
   { title: "Piscinas & Áreas Externas", image: ambientePiscina },
+  { title: "Halls & Corredores", image: ambienteHall },
 ];
 
 const Ambientes = () => {
