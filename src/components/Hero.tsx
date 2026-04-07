@@ -37,26 +37,28 @@ const Hero = () => {
     <motion.section
       ref={ref}
       style={{ scale, rotate }}
-      className="sticky top-0 h-screen w-full flex flex-col items-center justify-center bg-background overflow-hidden z-0"
+      className="relative h-screen w-full flex flex-col items-center justify-center bg-background overflow-hidden z-0"
     >
-      <HoverSlider className="relative w-full h-full flex items-center justify-center">
-        {/* Background Images */}
-        <motion.div
-          className="absolute inset-0 z-0 w-full h-full"
-          style={{ y: parallaxY }}
-        >
-          <HoverSliderImageWrap className="absolute inset-[-10%] w-[120%] h-[120%]">
-            {slides.map((slide, index) => (
-              <HoverSliderImage
-                key={index}
-                index={index}
-                imageUrl={slide.image}
-className="object-cover w-full h-full"
-                style={{ objectPosition: 'center 75%' }}
-              />
-            ))}
-          </HoverSliderImageWrap>
-        </motion.div>
+      <HoverSlider className="relative w-full h-full flex items-center justify-center overflow-hidden">
+        {/* Background Images - contained within Hero */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <motion.div
+            className="absolute inset-0 w-full h-full"
+            style={{ y: parallaxY }}
+          >
+            <HoverSliderImageWrap className="absolute inset-0 w-full h-full">
+              {slides.map((slide, index) => (
+                <HoverSliderImage
+                  key={index}
+                  index={index}
+                  imageUrl={slide.image}
+                  className="object-cover w-full h-full"
+                  style={{ objectPosition: 'center 70%' }}
+                />
+              ))}
+            </HoverSliderImageWrap>
+          </motion.div>
+        </div>
 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-background/50 z-10 pointer-events-none" />
