@@ -15,18 +15,17 @@ import ambienteVaranda from "@/assets/ambiente-varanda.png";
 import ambienteBanheiro from "@/assets/ambiente-banheiro.png";
 
 const slides = [
-  { title: "ELEGÂNCIA EM INOX", image: ambienteBanheiro },
-  { title: "AMBIENTES PREMIUM", image: ambienteLobby },
-  { title: "DESIGN SOFISTICADO", image: ambienteVaranda },
-  { title: "ÁREAS EXTERNAS", image: ambientePiscina },
+  { title: "ELEGÂNCIA EM INOX", image: ambienteBanheiro, backgroundPosition: "center 58%" },
+  { title: "AMBIENTES PREMIUM", image: ambienteLobby, backgroundPosition: "center 48%" },
+  { title: "DESIGN SOFISTICADO", image: ambienteVaranda, backgroundPosition: "center 72%" },
+  { title: "ÁREAS EXTERNAS", image: ambientePiscina, backgroundPosition: "center 56%" },
 ];
 
 const Hero = () => {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.85]);
-  const rotate = useTransform(scrollYProgress, [0, 0.5], [0, -3]);
-  const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1.12, 1.04]);
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ["-2%", "8%"]);
 
   const whatsappMessage = encodeURIComponent(
     "Olá! Vim através da Landing Page Premium e gostaria de solicitar um orçamento para meu hotel/condomínio/resort."
@@ -36,60 +35,70 @@ const Hero = () => {
   return (
     <motion.section
       ref={ref}
-      style={{ scale, rotate }}
-      className="relative h-screen w-full flex flex-col items-center justify-center bg-background overflow-hidden z-0"
+      className="relative z-0 h-[100svh] min-h-[640px] w-full overflow-hidden bg-background"
     >
-      <HoverSlider className="relative w-full h-full flex items-center justify-center overflow-hidden">
-        {/* Background Images - contained within Hero */}
+      <HoverSlider className="relative flex h-full w-full items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.div
-            className="absolute inset-0 w-full h-full"
-            style={{ y: parallaxY }}
+            className="absolute inset-[-10%]"
+            style={{ y: parallaxY, scale: backgroundScale }}
           >
-            <HoverSliderImageWrap className="absolute inset-0 w-full h-full">
+            <HoverSliderImageWrap className="absolute inset-0 h-full w-full">
               {slides.map((slide, index) => (
                 <HoverSliderImage
-                  key={index}
+                  key={`background-${index}`}
                   index={index}
                   imageUrl={slide.image}
-                  className="object-cover w-full h-full"
-                  style={{ objectPosition: 'center 70%' }}
+                  className="h-full w-full object-cover blur-xl brightness-[0.42] saturate-75"
+                  style={{ objectPosition: slide.backgroundPosition }}
                 />
               ))}
             </HoverSliderImageWrap>
           </motion.div>
+
+          <div className="absolute inset-0">
+            <HoverSliderImageWrap className="absolute inset-0 h-full w-full">
+              {slides.map((slide, index) => (
+                <HoverSliderImage
+                  key={`foreground-${index}`}
+                  index={index}
+                  imageUrl={slide.image}
+                  className="h-full w-full object-contain px-4 py-20 sm:px-8 md:px-12 md:py-16 lg:px-20 lg:py-12"
+                  style={{ objectPosition: "center center" }}
+                />
+              ))}
+            </HoverSliderImageWrap>
+          </div>
         </div>
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-background/50 z-10 pointer-events-none" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/30 via-background/18 to-background/42 pointer-events-none" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background/55 via-background/18 to-background/40 pointer-events-none" />
 
-        {/* Content */}
-        <div className="relative z-20 flex flex-col items-center justify-center gap-4 md:gap-6 w-full px-4">
+        <div className="relative z-20 flex w-full flex-col items-center justify-center gap-3 px-4 pt-16 pb-24 text-center sm:px-6 md:gap-4 md:px-8 md:pt-20 md:pb-28">
           {slides.map((slide, index) => (
             <TextStaggerHover
               key={index}
               index={index}
               text={slide.title}
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter uppercase"
+              className="text-[clamp(2.7rem,7vw,7rem)] leading-[0.88] font-black uppercase tracking-[-0.05em]"
             />
           ))}
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 mt-6 md:mt-10">
+          <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row md:mt-8">
             <Button
               size="lg"
-              className="group px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold bg-accent hover:bg-accent/90 text-accent-foreground transition-all duration-300 hover:scale-105"
+              className="group px-6 py-5 text-sm font-semibold transition-all duration-300 hover:scale-105 sm:px-8 sm:py-6 sm:text-base bg-accent hover:bg-accent/90 text-accent-foreground"
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
                 Solicitar Orçamento
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" />
               </a>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-semibold glass-pill text-foreground hover:text-foreground"
+              className="glass-pill px-6 py-5 text-sm font-semibold text-foreground hover:text-foreground sm:px-8 sm:py-6 sm:text-base"
               asChild
             >
               <a href="#produtos" className="flex items-center">Ver Produtos</a>
@@ -98,10 +107,9 @@ const Hero = () => {
         </div>
       </HoverSlider>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center text-muted-foreground animate-bounce">
-        <span className="text-xs tracking-widest uppercase mb-2 font-semibold">Scroll Down</span>
-        <ChevronDown className="w-5 h-5" />
+      <div className="absolute bottom-8 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center text-muted-foreground animate-bounce">
+        <span className="mb-2 text-xs font-semibold uppercase tracking-widest">Scroll Down</span>
+        <ChevronDown className="h-5 w-5" />
       </div>
     </motion.section>
   );
