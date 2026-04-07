@@ -5,6 +5,7 @@ import Features from "@/components/Features";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Testimonials from "@/components/Testimonials";
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <Ambientes />
       <Features />
       <ProductGallery />
+      <Testimonials />
       <CTA />
       <Footer />
       <WhatsAppButton />
