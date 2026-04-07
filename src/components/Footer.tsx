@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoWinnet from "@/assets/logo-winnet.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,8 +20,8 @@ const Footer = () => {
           fontWeight: 900,
           letterSpacing: "-0.05em",
           color: "transparent",
-          WebkitTextStroke: "1px hsl(0 0% 100% / 0.04)",
-          background: "linear-gradient(180deg, hsl(0 0% 100% / 0.06) 0%, transparent 60%)",
+          WebkitTextStroke: "1px hsl(195 85% 45% / 0.06)",
+          background: "linear-gradient(180deg, hsl(195 85% 45% / 0.08) 0%, transparent 60%)",
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
         }}
@@ -44,7 +45,7 @@ const Footer = () => {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-accent">Winnet Metais</h3>
+            <img src={logoWinnet} alt="Winnet Metais" className="h-10 w-auto mb-4" />
             <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
               Referência em soluções premium de aço inox para hotéis, condomínios e resorts. Qualidade e sofisticação desde 2022.
             </p>

@@ -10,8 +10,8 @@ const CTA = () => {
 
   return (
     <section className="py-24 bg-background relative overflow-hidden z-10">
-      {/* Radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary/30 via-background to-background pointer-events-none" />
+      {/* Radial glow - brand blue */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(195_85%_45%/0.06),transparent_70%)] pointer-events-none" />
 
       <div className="container relative z-10 px-4 mx-auto">
         <motion.div
@@ -23,7 +23,7 @@ const CTA = () => {
         >
           <h2 className="mb-6 text-4xl md:text-5xl lg:text-6xl font-bold text-glow">
             Pronto para Elevar o Padrão
-            <span className="block mt-2 text-gradient-gold">
+            <span className="block mt-2 text-gradient-brand">
               do Seu Empreendimento?
             </span>
           </h2>
@@ -35,7 +35,7 @@ const CTA = () => {
           <div className="flex flex-col items-center gap-4 mb-12 sm:flex-row sm:justify-center">
             <Button
               size="lg"
-              className="group px-8 py-6 text-lg font-semibold bg-accent hover:bg-accent/90 text-accent-foreground transition-all duration-300 hover:scale-105"
+              className="group px-8 py-6 text-lg font-semibold bg-accent hover:bg-accent/90 text-accent-foreground transition-all duration-300 hover:scale-105 shadow-[0_4px_24px_hsl(195_85%_45%/0.3)]"
               asChild
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -61,19 +61,19 @@ const CTA = () => {
           <div className="pt-8 border-t border-border">
             <div className="flex flex-col items-center gap-6 text-muted-foreground sm:flex-row sm:justify-center sm:gap-12">
               <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5" />
+                <Phone className="w-5 h-5 text-accent/70" />
                 <a href="tel:+5511959105205" className="hover:text-accent transition-colors">
                   +55 (11) 95910-5205
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5" />
+                <Mail className="w-5 h-5 text-accent/70" />
                 <a href="mailto:comercial@winnetmetais.com.br" className="hover:text-accent transition-colors">
                   comercial@winnetmetais.com.br
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5" />
+                <MapPin className="w-5 h-5 text-accent/70" />
                 <span>São Paulo - SP</span>
               </div>
             </div>
