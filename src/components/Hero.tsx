@@ -1,117 +1,467 @@
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import {
-  HoverSlider,
-  TextStaggerHover,
-  HoverSliderImageWrap,
-  HoverSliderImage,
-} from "@/components/HoverSlider";
 
 import ambientePiscina from "@/assets/ambiente-piscina.png";
 import ambienteLobby from "@/assets/ambiente-lobby.png";
 import ambienteVaranda from "@/assets/ambiente-varanda.png";
 import ambienteBanheiro from "@/assets/ambiente-banheiro.png";
 
+declare const gsap: any;
+declare const THREE: any;
+
 const slides = [
-  { title: "ELEGÂNCIA EM INOX", image: ambienteBanheiro, backgroundPosition: "center 58%" },
-  { title: "AMBIENTES PREMIUM", image: ambienteLobby, backgroundPosition: "center 48%" },
-  { title: "DESIGN SOFISTICADO", image: ambienteVaranda, backgroundPosition: "center 72%" },
-  { title: "ÁREAS EXTERNAS", image: ambientePiscina, backgroundPosition: "center 56%" },
+  { title: "Elegância em Inox", description: "Soluções premium em aço inox para ambientes que exigem sofisticação e durabilidade.", media: ambienteBanheiro },
+  { title: "Ambientes Premium", description: "Design funcional que transforma espaços corporativos e hoteleiros.", media: ambienteLobby },
+  { title: "Design Sofisticado", description: "Cada detalhe pensado para valorizar a arquitetura do seu projeto.", media: ambienteVaranda },
+  { title: "Áreas Externas", description: "Resistência e beleza para piscinas, varandas e áreas de lazer.", media: ambientePiscina },
 ];
 
+const vertexShader = `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`;
+
+const fragmentShader = `
+  uniform sampler2D uTexture1, uTexture2;
+  uniform float uProgress;
+  uniform vec2 uResolution, uTexture1Size, uTexture2Size;
+  varying vec2 vUv;
+
+  vec2 getCoverUV(vec2 uv, vec2 textureSize) {
+    vec2 s = uResolution / textureSize;
+    float scale = max(s.x, s.y);
+    vec2 scaledSize = textureSize * scale;
+    vec2 offset = (uResolution - scaledSize) * 0.5;
+    return (uv * uResolution - offset) / scaledSize;
+  }
+
+  void main() {
+    vec2 uv1 = getCoverUV(vUv, uTexture1Size);
+    vec2 uv2 = getCoverUV(vUv, uTexture2Size);
+    float maxR = length(uResolution) * 0.85;
+    float br = uProgress * maxR;
+    vec2 p = vUv * uResolution;
+    vec2 c = uResolution * 0.5;
+    float d = length(p - c);
+    float nd = d / max(br, 0.001);
+    float param = smoothstep(br + 3.0, br - 3.0, d);
+
+    vec4 img;
+    if (param > 0.0) {
+      float ro = 0.08 * pow(smoothstep(0.3, 1.0, nd), 1.5);
+      vec2 dir = (d > 0.0) ? (p - c) / d : vec2(0.0);
+      vec2 distUV = uv2 - dir * ro;
+      float ca = 0.02 * pow(smoothstep(0.3, 1.0, nd), 1.2);
+      img = vec4(
+        texture2D(uTexture2, distUV + dir * ca * 1.2).r,
+        texture2D(uTexture2, distUV + dir * ca * 0.2).g,
+        texture2D(uTexture2, distUV - dir * ca * 0.8).b,
+        1.0
+      );
+      float rim = smoothstep(0.95, 1.0, nd) * (1.0 - smoothstep(1.0, 1.01, nd));
+      img.rgb += rim * 0.08;
+    } else {
+      img = texture2D(uTexture2, uv2);
+    }
+
+    vec4 oldImg = texture2D(uTexture1, uv1);
+    if (uProgress > 0.95) img = mix(img, texture2D(uTexture2, uv2), (uProgress - 0.95) / 0.05);
+    gl_FragColor = mix(oldImg, img, param);
+  }
+`;
+
 const Hero = () => {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const backgroundScale = useTransform(scrollYProgress, [0, 1], [1.12, 1.04]);
-  const parallaxY = useTransform(scrollYProgress, [0, 1], ["-2%", "8%"]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cleanupRef = useRef<(() => void) | null>(null);
 
   const whatsappMessage = encodeURIComponent(
     "Olá! Vim através da Landing Page Premium e gostaria de solicitar um orçamento para meu hotel/condomínio/resort."
   );
   const whatsappUrl = `https://wa.me/5511959105205?text=${whatsappMessage}`;
 
+  useEffect(() => {
+    let renderer: any, scene: any, camera: any, shaderMaterial: any;
+    let slideTextures: any[] = [];
+    let currentSlideIndex = 0;
+    let isTransitioning = false;
+    let texturesLoaded = false;
+    let sliderEnabled = false;
+    let autoSlideTimer: any = null;
+    let progressAnimation: any = null;
+    let animFrameId: number;
+    let destroyed = false;
+
+    const SLIDE_DURATION = 5000;
+    const PROGRESS_INTERVAL = 50;
+    const TRANSITION_DURATION = 2.5;
+
+    const loadScript = (src: string, globalName: string): Promise<void> =>
+      new Promise((res, rej) => {
+        if ((window as any)[globalName]) { res(); return; }
+        if (document.querySelector(`script[src="${src}"]`)) {
+          const check = setInterval(() => {
+            if ((window as any)[globalName]) { clearInterval(check); res(); }
+          }, 50);
+          setTimeout(() => { clearInterval(check); rej(new Error(`Timeout: ${globalName}`)); }, 10000);
+          return;
+        }
+        const s = document.createElement("script");
+        s.src = src;
+        s.onload = () => setTimeout(() => res(), 100);
+        s.onerror = () => rej(new Error(`Failed: ${src}`));
+        document.head.appendChild(s);
+      });
+
+    const splitText = (text: string) =>
+      text.split("").map((c) => `<span style="display:inline-block">${c === " " ? "&nbsp;" : c}</span>`).join("");
+
+    const stopTimer = () => {
+      if (progressAnimation) clearInterval(progressAnimation);
+      if (autoSlideTimer) clearTimeout(autoSlideTimer);
+      progressAnimation = null;
+      autoSlideTimer = null;
+    };
+
+    const quickResetProgress = (idx: number) => {
+      const el = containerRef.current?.querySelectorAll(".slider-nav-item")[idx]?.querySelector(".slider-progress-fill") as HTMLElement;
+      if (el) { el.style.transition = "width 0.2s"; el.style.width = "0%"; setTimeout(() => (el.style.transition = "width 0.1s, opacity 0.3s"), 200); }
+    };
+
+    const updateSlideProgress = (idx: number, prog: number) => {
+      const el = containerRef.current?.querySelectorAll(".slider-nav-item")[idx]?.querySelector(".slider-progress-fill") as HTMLElement;
+      if (el) { el.style.width = `${prog}%`; el.style.opacity = "1"; }
+    };
+
+    const fadeSlideProgress = (idx: number) => {
+      const el = containerRef.current?.querySelectorAll(".slider-nav-item")[idx]?.querySelector(".slider-progress-fill") as HTMLElement;
+      if (el) { el.style.opacity = "0"; setTimeout(() => (el.style.width = "0%"), 300); }
+    };
+
+    const updateNavState = (idx: number) => {
+      containerRef.current?.querySelectorAll(".slider-nav-item").forEach((el, i) => el.classList.toggle("active", i === idx));
+    };
+
+    const updateCounter = (idx: number) => {
+      const sn = containerRef.current?.querySelector("#slideNumber");
+      if (sn) sn.textContent = String(idx + 1).padStart(2, "0");
+    };
+
+    const startTimer = () => {
+      if (!texturesLoaded || !sliderEnabled || destroyed) return;
+      stopTimer();
+      let progress = 0;
+      const inc = (100 / SLIDE_DURATION) * PROGRESS_INTERVAL;
+      progressAnimation = setInterval(() => {
+        if (!sliderEnabled || destroyed) { stopTimer(); return; }
+        progress += inc;
+        updateSlideProgress(currentSlideIndex, progress);
+        if (progress >= 100) {
+          clearInterval(progressAnimation);
+          progressAnimation = null;
+          fadeSlideProgress(currentSlideIndex);
+          if (!isTransitioning) handleSlideChange();
+        }
+      }, PROGRESS_INTERVAL);
+    };
+
+    const safeStartTimer = (delay = 0) => {
+      stopTimer();
+      if (sliderEnabled && texturesLoaded && !destroyed) {
+        if (delay > 0) autoSlideTimer = setTimeout(startTimer, delay);
+        else startTimer();
+      }
+    };
+
+    const updateContent = (idx: number) => {
+      const titleEl = containerRef.current?.querySelector("#mainTitle") as HTMLElement;
+      const descEl = containerRef.current?.querySelector("#mainDesc") as HTMLElement;
+      if (!titleEl || !descEl) return;
+
+      gsap.to(titleEl.children, { y: -20, opacity: 0, duration: 0.5, stagger: 0.02, ease: "power2.in" });
+      gsap.to(descEl, { y: -10, opacity: 0, duration: 0.4, ease: "power2.in" });
+
+      setTimeout(() => {
+        if (destroyed) return;
+        titleEl.innerHTML = splitText(slides[idx].title);
+        descEl.textContent = slides[idx].description;
+        gsap.set(titleEl.children, { opacity: 0 });
+        gsap.set(descEl, { y: 20, opacity: 0 });
+
+        const children = titleEl.children;
+        switch (idx % 4) {
+          case 0:
+            gsap.set(children, { y: 20 });
+            gsap.to(children, { y: 0, opacity: 1, duration: 0.8, stagger: 0.03, ease: "power3.out" });
+            break;
+          case 1:
+            gsap.set(children, { y: -20 });
+            gsap.to(children, { y: 0, opacity: 1, duration: 0.8, stagger: 0.03, ease: "back.out(1.7)" });
+            break;
+          case 2:
+            gsap.set(children, { filter: "blur(10px)", scale: 1.5, y: 0 });
+            gsap.to(children, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 1, stagger: { amount: 0.5, from: "random" }, ease: "power2.out" });
+            break;
+          case 3:
+            gsap.set(children, { scale: 0, y: 0 });
+            gsap.to(children, { scale: 1, opacity: 1, duration: 0.6, stagger: 0.05, ease: "back.out(1.5)" });
+            break;
+        }
+        gsap.to(descEl, { y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power3.out" });
+      }, 500);
+    };
+
+    const navigateToSlide = (targetIndex: number) => {
+      if (isTransitioning || targetIndex === currentSlideIndex || !shaderMaterial) return;
+      stopTimer();
+      quickResetProgress(currentSlideIndex);
+
+      const curTex = slideTextures[currentSlideIndex];
+      const tarTex = slideTextures[targetIndex];
+      if (!curTex || !tarTex) return;
+
+      isTransitioning = true;
+      shaderMaterial.uniforms.uTexture1.value = curTex;
+      shaderMaterial.uniforms.uTexture2.value = tarTex;
+      shaderMaterial.uniforms.uTexture1Size.value = curTex.userData.size;
+      shaderMaterial.uniforms.uTexture2Size.value = tarTex.userData.size;
+
+      updateContent(targetIndex);
+      currentSlideIndex = targetIndex;
+      updateCounter(currentSlideIndex);
+      updateNavState(currentSlideIndex);
+
+      gsap.fromTo(
+        shaderMaterial.uniforms.uProgress,
+        { value: 0 },
+        {
+          value: 1,
+          duration: TRANSITION_DURATION,
+          ease: "power2.inOut",
+          onComplete: () => {
+            if (destroyed) return;
+            shaderMaterial.uniforms.uProgress.value = 0;
+            shaderMaterial.uniforms.uTexture1.value = tarTex;
+            shaderMaterial.uniforms.uTexture1Size.value = tarTex.userData.size;
+            isTransitioning = false;
+            safeStartTimer(100);
+          },
+        }
+      );
+    };
+
+    const handleSlideChange = () => {
+      if (isTransitioning || !texturesLoaded || !sliderEnabled || destroyed) return;
+      navigateToSlide((currentSlideIndex + 1) % slides.length);
+    };
+
+    const loadImageTexture = (src: string): Promise<any> =>
+      new Promise((resolve, reject) => {
+        const l = new THREE.TextureLoader();
+        l.load(
+          src,
+          (t: any) => {
+            t.minFilter = t.magFilter = THREE.LinearFilter;
+            t.userData = { size: new THREE.Vector2(t.image.width, t.image.height) };
+            resolve(t);
+          },
+          undefined,
+          reject
+        );
+      });
+
+    const init = async () => {
+      try {
+        await loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js", "gsap");
+        await loadScript("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js", "THREE");
+      } catch (e) {
+        console.error("Script load error:", e);
+        return;
+      }
+
+      if (destroyed) return;
+
+      const canvas = containerRef.current?.querySelector(".webgl-canvas") as HTMLCanvasElement;
+      if (!canvas) return;
+
+      scene = new THREE.Scene();
+      camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      shaderMaterial = new THREE.ShaderMaterial({
+        uniforms: {
+          uTexture1: { value: null },
+          uTexture2: { value: null },
+          uProgress: { value: 0 },
+          uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+          uTexture1Size: { value: new THREE.Vector2(1, 1) },
+          uTexture2Size: { value: new THREE.Vector2(1, 1) },
+        },
+        vertexShader,
+        fragmentShader,
+      });
+
+      scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), shaderMaterial));
+
+      for (const s of slides) {
+        try {
+          slideTextures.push(await loadImageTexture(s.media));
+        } catch {
+          console.warn("Failed to load texture");
+        }
+      }
+
+      if (destroyed) return;
+
+      if (slideTextures.length >= 2) {
+        shaderMaterial.uniforms.uTexture1.value = slideTextures[0];
+        shaderMaterial.uniforms.uTexture2.value = slideTextures[1];
+        shaderMaterial.uniforms.uTexture1Size.value = slideTextures[0].userData.size;
+        shaderMaterial.uniforms.uTexture2Size.value = slideTextures[1].userData.size;
+        texturesLoaded = true;
+        sliderEnabled = true;
+
+        const wrapper = containerRef.current?.querySelector(".slider-wrapper");
+        wrapper?.classList.add("loaded");
+
+        safeStartTimer(500);
+      }
+
+      // Init text
+      const tEl = containerRef.current?.querySelector("#mainTitle") as HTMLElement;
+      const dEl = containerRef.current?.querySelector("#mainDesc") as HTMLElement;
+      if (tEl && dEl) {
+        tEl.innerHTML = splitText(slides[0].title);
+        dEl.textContent = slides[0].description;
+        gsap.fromTo(tEl.children, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.03, ease: "power3.out", delay: 0.3 });
+        gsap.fromTo(dEl, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.6 });
+      }
+
+      const render = () => {
+        if (destroyed) return;
+        animFrameId = requestAnimationFrame(render);
+        renderer.render(scene, camera);
+      };
+      render();
+
+      // Nav click handlers
+      containerRef.current?.querySelectorAll(".slider-nav-item").forEach((el, i) => {
+        el.addEventListener("click", () => {
+          if (!isTransitioning && i !== currentSlideIndex) navigateToSlide(i);
+        });
+      });
+
+      // Resize
+      const onResize = () => {
+        if (renderer && shaderMaterial) {
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          shaderMaterial.uniforms.uResolution.value.set(window.innerWidth, window.innerHeight);
+        }
+      };
+      window.addEventListener("resize", onResize);
+
+      const onVisChange = () => {
+        if (document.hidden) stopTimer();
+        else if (!isTransitioning) safeStartTimer();
+      };
+      document.addEventListener("visibilitychange", onVisChange);
+
+      cleanupRef.current = () => {
+        destroyed = true;
+        stopTimer();
+        cancelAnimationFrame(animFrameId);
+        window.removeEventListener("resize", onResize);
+        document.removeEventListener("visibilitychange", onVisChange);
+        if (renderer) renderer.dispose();
+        slideTextures.forEach((t) => t?.dispose?.());
+      };
+    };
+
+    init();
+
+    return () => {
+      cleanupRef.current?.();
+    };
+  }, []);
+
   return (
-    <motion.section
-      ref={ref}
-      className="relative z-0 h-[100svh] min-h-[640px] w-full overflow-hidden bg-background"
-    >
-      <HoverSlider className="relative flex h-full w-full items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <motion.div
-            className="absolute inset-[-10%]"
-            style={{ y: parallaxY, scale: backgroundScale }}
-          >
-            <HoverSliderImageWrap className="absolute inset-0 h-full w-full">
-              {slides.map((slide, index) => (
-                <HoverSliderImage
-                  key={`background-${index}`}
-                  index={index}
-                  imageUrl={slide.image}
-                  className="h-full w-full object-cover blur-xl brightness-[0.42] saturate-75"
-                  style={{ objectPosition: slide.backgroundPosition }}
-                />
-              ))}
-            </HoverSliderImageWrap>
-          </motion.div>
+    <section className="relative z-0 h-[100svh] w-full overflow-hidden bg-background">
+      <div ref={containerRef} className="relative h-full w-full">
+        {/* WebGL slider */}
+        <div className="slider-wrapper absolute inset-0">
+          <canvas className="webgl-canvas absolute inset-0 h-full w-full" />
 
-          <div className="absolute inset-0">
-            <HoverSliderImageWrap className="absolute inset-0 h-full w-full">
-              {slides.map((slide, index) => (
-                <HoverSliderImage
-                  key={`foreground-${index}`}
-                  index={index}
-                  imageUrl={slide.image}
-                  className="h-full w-full object-contain px-4 py-20 sm:px-8 md:px-12 md:py-16 lg:px-20 lg:py-12"
-                  style={{ objectPosition: "center center" }}
-                />
-              ))}
-            </HoverSliderImageWrap>
+          {/* Counter */}
+          <div className="absolute top-6 right-6 z-30 flex items-baseline gap-1 font-mono text-xs tracking-widest text-foreground/60 sm:top-8 sm:right-8">
+            <span id="slideNumber" className="text-lg font-light text-foreground">01</span>
+            <span>/</span>
+            <span id="slideTotal">{String(slides.length).padStart(2, "0")}</span>
+          </div>
+
+          {/* Navigation */}
+          <div id="slidesNav" className="absolute bottom-28 left-1/2 z-30 flex -translate-x-1/2 gap-3 sm:bottom-32 sm:gap-4">
+            {slides.map((slide, i) => (
+              <div
+                key={i}
+                className={`slider-nav-item group flex cursor-pointer flex-col items-center gap-2 ${i === 0 ? "active" : ""}`}
+              >
+                <span className="text-[10px] font-medium uppercase tracking-[0.15em] text-foreground/40 transition-colors group-[.active]:text-foreground/90 sm:text-xs">
+                  {slide.title}
+                </span>
+                <div className="h-[2px] w-10 overflow-hidden rounded-full bg-foreground/10 sm:w-14">
+                  <div className="slider-progress-fill h-full w-0 rounded-full bg-accent transition-[width_0.1s,opacity_0.3s]" />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Content overlay */}
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none">
+            {/* Gradient overlays */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
+
+            <div className="relative flex flex-col items-center gap-4 px-4 text-center sm:gap-6">
+              <h1
+                id="mainTitle"
+                className="font-display text-[clamp(2.8rem,8vw,7.5rem)] font-light leading-[0.92] tracking-[-0.03em] text-foreground"
+                style={{ fontFamily: "var(--font-display, 'Inter', sans-serif)" }}
+              />
+              <p
+                id="mainDesc"
+                className="max-w-md text-sm leading-relaxed text-foreground/60 sm:max-w-lg sm:text-base"
+              />
+
+              <div className="mt-4 flex flex-col items-center gap-3 pointer-events-auto sm:flex-row sm:mt-6">
+                <Button
+                  size="lg"
+                  className="group px-6 py-5 text-sm font-semibold transition-all duration-300 hover:scale-105 sm:px-8 sm:py-6 sm:text-base bg-accent hover:bg-accent/90 text-accent-foreground"
+                  asChild
+                >
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                    Solicitar Orçamento
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" />
+                  </a>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="glass-pill px-6 py-5 text-sm font-semibold text-foreground hover:text-foreground sm:px-8 sm:py-6 sm:text-base"
+                  asChild
+                >
+                  <a href="#produtos" className="flex items-center">Ver Produtos</a>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/30 via-background/18 to-background/42 pointer-events-none" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-background/55 via-background/18 to-background/40 pointer-events-none" />
-
-        <div className="relative z-20 flex w-full flex-col items-center justify-center gap-3 px-4 pt-16 pb-24 text-center sm:px-6 md:gap-4 md:px-8 md:pt-20 md:pb-28">
-          {slides.map((slide, index) => (
-            <TextStaggerHover
-              key={index}
-              index={index}
-              text={slide.title}
-              className="text-[clamp(2.7rem,7vw,7rem)] leading-[0.88] font-black uppercase tracking-[-0.05em]"
-            />
-          ))}
-
-          <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row md:mt-8">
-            <Button
-              size="lg"
-              className="group px-6 py-5 text-sm font-semibold transition-all duration-300 hover:scale-105 sm:px-8 sm:py-6 sm:text-base bg-accent hover:bg-accent/90 text-accent-foreground"
-              asChild
-            >
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                Solicitar Orçamento
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" />
-              </a>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="glass-pill px-6 py-5 text-sm font-semibold text-foreground hover:text-foreground sm:px-8 sm:py-6 sm:text-base"
-              asChild
-            >
-              <a href="#produtos" className="flex items-center">Ver Produtos</a>
-            </Button>
-          </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center text-muted-foreground animate-bounce">
+          <span className="mb-2 text-xs font-semibold uppercase tracking-widest">Scroll</span>
+          <ChevronDown className="h-5 w-5" />
         </div>
-      </HoverSlider>
-
-      <div className="absolute bottom-8 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center text-muted-foreground animate-bounce">
-        <span className="mb-2 text-xs font-semibold uppercase tracking-widest">Scroll Down</span>
-        <ChevronDown className="h-5 w-5" />
       </div>
-    </motion.section>
+    </section>
   );
 };
 
