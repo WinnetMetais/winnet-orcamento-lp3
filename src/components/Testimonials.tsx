@@ -86,7 +86,7 @@ const TestimonialsColumn = ({ testimonials: items, className, duration = 10 }: T
                   y: -8,
                   transition: { type: "spring", stiffness: 400, damping: 17 }
                 }}
-                className="p-8 rounded-3xl border border-border shadow-lg max-w-xs w-full bg-card/80 backdrop-blur-sm cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all duration-300"
+                className="p-8 rounded-3xl border border-border shadow-lg max-w-xs w-full bg-card/80 backdrop-blur-sm cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all duration-300 hover:border-accent/20 hover:shadow-[0_0_20px_hsl(195_85%_45%/0.08)]"
               >
                 <blockquote className="m-0 p-0">
                   <div className="flex justify-between items-start mb-4">

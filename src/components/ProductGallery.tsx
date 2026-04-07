@@ -112,7 +112,7 @@ const ProductGallery = () => {
               variant={filter === cat ? "default" : "outline"}
               size="sm"
               onClick={() => setFilter(cat)}
-              className={filter === cat ? "bg-foreground text-background hover:bg-foreground/90" : "border-border text-muted-foreground hover:bg-secondary hover:text-foreground"}
+              className={filter === cat ? "bg-accent text-accent-foreground hover:bg-accent/90 shadow-[0_2px_12px_hsl(195_85%_45%/0.25)]" : "border-border text-muted-foreground hover:bg-secondary hover:text-foreground hover:border-accent/30"}
             >
               {cat === "all" ? "Todos" : cat}
             </Button>
@@ -132,7 +132,7 @@ const ProductGallery = () => {
                 transition={{ duration: 0.3, delay: index * 0.03 }}
               >
                 <div
-                  className="group relative cursor-pointer overflow-hidden rounded-xl border border-border bg-card/50 backdrop-blur-sm transition-all hover:border-muted-foreground/30 hover:shadow-[0_0_30px_hsl(0_0%_100%/0.05)]"
+                  className="group relative cursor-pointer overflow-hidden rounded-xl border border-border bg-card/50 backdrop-blur-sm transition-all hover:border-accent/30 hover:shadow-[0_0_30px_hsl(195_85%_45%/0.1)]"
                   onClick={() => setSelectedProduct(product)}
                 >
                   <div className="relative aspect-square overflow-hidden">
