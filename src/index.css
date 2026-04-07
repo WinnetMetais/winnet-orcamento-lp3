@@ -8,6 +8,9 @@
     --background: 230 50% 3%;
     --foreground: 0 0% 100%;
 
+    /* Display Font */
+    --font-display: "Cormorant Garamond", serif;
+
     --card: 230 20% 7%;
     --card-foreground: 0 0% 100%;
 
@@ -92,6 +95,18 @@
 }
 
 @layer utilities {
+  /* WebGL Slider */
+  .slider-wrapper {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .slider-wrapper.loaded {
+    opacity: 1;
+  }
+  .font-display {
+    font-family: var(--font-display, "Cormorant Garamond", serif);
+  }
+
   .text-gradient-gold {
     @apply bg-gradient-to-r from-accent to-yellow-400 bg-clip-text text-transparent;
   }
