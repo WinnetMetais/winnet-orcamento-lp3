@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import logoWinnet from "@/assets/logo-winnet.png";
 
 import heroPiscina from "@/assets/hero-piscina.png";
 import heroLobby from "@/assets/hero-lobby.png";
@@ -58,9 +59,7 @@ const fragmentShader = `
       );
       float rim = smoothstep(0.95, 1.0, nd) * (1.0 - smoothstep(1.0, 1.01, nd));
       img.rgb += rim * 0.08;
-    } else {
-      img = texture2D(uTexture2, uv2);
-    }
+    } else { img = texture2D(uTexture2, uv2); }
 
     vec4 oldImg = texture2D(uTexture1, uv1);
     if (uProgress > 0.95) img = mix(img, texture2D(uTexture2, uv2), (uProgress - 0.95) / 0.05);
@@ -326,7 +325,6 @@ const Hero = () => {
         safeStartTimer(500);
       }
 
-      // Init text
       const tEl = containerRef.current?.querySelector("#mainTitle") as HTMLElement;
       const dEl = containerRef.current?.querySelector("#mainDesc") as HTMLElement;
       if (tEl && dEl) {
@@ -343,14 +341,12 @@ const Hero = () => {
       };
       render();
 
-      // Nav click handlers
       containerRef.current?.querySelectorAll(".slider-nav-item").forEach((el, i) => {
         el.addEventListener("click", () => {
           if (!isTransitioning && i !== currentSlideIndex) navigateToSlide(i);
         });
       });
 
-      // Resize
       const onResize = () => {
         if (renderer && shaderMaterial) {
           renderer.setSize(window.innerWidth, window.innerHeight);
@@ -390,6 +386,11 @@ const Hero = () => {
         <div className="slider-wrapper absolute inset-0">
           <canvas className="webgl-canvas absolute inset-0 h-full w-full" />
 
+          {/* Logo */}
+          <div className="absolute top-6 left-6 z-30 sm:top-8 sm:left-8">
+            <img src={logoWinnet} alt="Winnet Metais" className="h-10 sm:h-12 w-auto drop-shadow-lg" />
+          </div>
+
           {/* Counter */}
           <div className="absolute top-6 right-6 z-30 flex items-baseline gap-1 font-mono text-xs tracking-widest text-foreground/60 sm:top-8 sm:right-8">
             <span id="slideNumber" className="text-lg font-light text-foreground">01</span>
@@ -417,7 +418,7 @@ const Hero = () => {
           {/* Content overlay */}
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none">
             {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/70" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/80" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
 
             <div className="relative flex flex-col items-center gap-4 px-4 text-center sm:gap-6">
@@ -434,7 +435,7 @@ const Hero = () => {
               <div className="mt-4 flex flex-col items-center gap-3 pointer-events-auto sm:flex-row sm:mt-6">
                 <Button
                   size="lg"
-                  className="group px-6 py-5 text-sm font-semibold transition-all duration-300 hover:scale-105 sm:px-8 sm:py-6 sm:text-base bg-accent hover:bg-accent/90 text-accent-foreground"
+                  className="group px-6 py-5 text-sm font-semibold transition-all duration-300 hover:scale-105 sm:px-8 sm:py-6 sm:text-base bg-accent hover:bg-accent/90 text-accent-foreground shadow-[0_4px_20px_hsl(195_85%_45%/0.3)]"
                   asChild
                 >
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center">
@@ -456,7 +457,7 @@ const Hero = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center text-muted-foreground animate-bounce">
+        <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center text-accent/70 animate-bounce">
           <span className="mb-2 text-xs font-semibold uppercase tracking-widest">Scroll</span>
           <ChevronDown className="h-5 w-5" />
         </div>
