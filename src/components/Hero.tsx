@@ -2,19 +2,19 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
-import ambientePiscina from "@/assets/ambiente-piscina.png";
-import ambienteLobby from "@/assets/ambiente-lobby.png";
-import ambienteVaranda from "@/assets/ambiente-varanda.png";
-import ambienteBanheiro from "@/assets/ambiente-banheiro.png";
+import heroPiscina from "@/assets/hero-piscina.png";
+import heroLobby from "@/assets/hero-lobby.png";
+import heroVaranda from "@/assets/hero-varanda.png";
+import heroBanheiro from "@/assets/hero-banheiro.png";
 
 declare const gsap: any;
 declare const THREE: any;
 
 const slides = [
-  { title: "Elegância em Inox", description: "Soluções premium em aço inox para ambientes que exigem sofisticação e durabilidade.", media: ambienteBanheiro },
-  { title: "Ambientes Premium", description: "Design funcional que transforma espaços corporativos e hoteleiros.", media: ambienteLobby },
-  { title: "Design Sofisticado", description: "Cada detalhe pensado para valorizar a arquitetura do seu projeto.", media: ambienteVaranda },
-  { title: "Áreas Externas", description: "Resistência e beleza para piscinas, varandas e áreas de lazer.", media: ambientePiscina },
+  { title: "Elegância em Inox", description: "Soluções premium em aço inox para ambientes que exigem sofisticação e durabilidade.", media: heroBanheiro },
+  { title: "Ambientes Premium", description: "Design funcional que transforma espaços corporativos e hoteleiros.", media: heroLobby },
+  { title: "Design Sofisticado", description: "Cada detalhe pensado para valorizar a arquitetura do seu projeto.", media: heroVaranda },
+  { title: "Áreas Externas", description: "Resistência e beleza para piscinas, varandas e áreas de lazer.", media: heroPiscina },
 ];
 
 const vertexShader = `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`;
