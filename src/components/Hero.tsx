@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
-import ambientePiscina from "@/assets/ambiente-piscina.png";
-import ambienteLobby from "@/assets/ambiente-lobby.png";
-import ambienteVaranda from "@/assets/ambiente-varanda.png";
-import ambienteBanheiro from "@/assets/ambiente-banheiro.png";
+import heroPiscina from "@/assets/hero-piscina.png";
+import heroLobby from "@/assets/hero-lobby.png";
+import heroVaranda from "@/assets/hero-varanda.png";
+import heroBanheiro from "@/assets/hero-banheiro.png";
 
 declare const gsap: any;
 declare const THREE: any;
