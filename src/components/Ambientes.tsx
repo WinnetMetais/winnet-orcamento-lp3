@@ -41,12 +41,12 @@ const Ambientes = () => {
           {ambientes.map((amb, index) => (
             <div
               key={index}
-              className="relative group overflow-hidden rounded-xl h-64 md:h-full cursor-pointer border border-border"
+              className="relative group overflow-hidden rounded-xl h-80 md:h-full cursor-pointer border border-border"
             >
               <img
                 src={amb.image}
                 alt={amb.title}
-                className="object-cover object-bottom w-full h-full transition-transform duration-700 group-hover:scale-110"
+                className="object-contain md:object-cover object-center md:object-bottom w-full h-full bg-secondary transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
