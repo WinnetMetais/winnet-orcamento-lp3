@@ -254,6 +254,7 @@ const Hero = () => {
             shaderMaterial.uniforms.uProgress.value = 0;
             shaderMaterial.uniforms.uTexture1.value = tarTex;
             shaderMaterial.uniforms.uTexture1Size.value = tarTex.userData.size;
+            shaderMaterial.uniforms.uOffset1.value.copy(shaderMaterial.uniforms.uOffset2.value);
             isTransitioning = false;
             safeStartTimer(100);
           },
