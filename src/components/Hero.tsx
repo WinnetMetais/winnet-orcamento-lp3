@@ -24,19 +24,20 @@ const fragmentShader = `
   uniform sampler2D uTexture1, uTexture2;
   uniform float uProgress;
   uniform vec2 uResolution, uTexture1Size, uTexture2Size;
+  uniform vec2 uOffset1, uOffset2;
   varying vec2 vUv;
 
-  vec2 getCoverUV(vec2 uv, vec2 textureSize) {
+  vec2 getCoverUV(vec2 uv, vec2 textureSize, vec2 uvOffset) {
     vec2 s = uResolution / textureSize;
     float scale = max(s.x, s.y);
     vec2 scaledSize = textureSize * scale;
     vec2 offset = (uResolution - scaledSize) * 0.5;
-    return (uv * uResolution - offset) / scaledSize;
+    return (uv * uResolution - offset) / scaledSize + uvOffset;
   }
 
   void main() {
-    vec2 uv1 = getCoverUV(vUv, uTexture1Size);
-    vec2 uv2 = getCoverUV(vUv, uTexture2Size);
+    vec2 uv1 = getCoverUV(vUv, uTexture1Size, uOffset1);
+    vec2 uv2 = getCoverUV(vUv, uTexture2Size, uOffset2);
     float maxR = length(uResolution) * 0.85;
     float br = uProgress * maxR;
     vec2 p = vUv * uResolution;
@@ -87,6 +88,15 @@ const Hero = () => {
     let progressAnimation: any = null;
     let animFrameId: number;
     let destroyed = false;
+
+    const isMobile = () => window.innerWidth < 768;
+    // Per-slide horizontal UV offsets for mobile [x, y]
+    const mobileOffsets: [number, number][] = [
+      [0, 0],       // Elegância em Inox (banheiro) - ok
+      [-0.15, 0],   // Ambientes Premium (lobby) - shift left to show lixeira
+      [-0.15, 0],   // Design Sofisticado (varanda) - shift left to show lixeira
+      [0, 0],       // Áreas Externas (piscina) - ok
+    ];
 
     const SLIDE_DURATION = 5000;
     const PROGRESS_INTERVAL = 50;
@@ -217,10 +227,15 @@ const Hero = () => {
       if (!curTex || !tarTex) return;
 
       isTransitioning = true;
+      const mobile = isMobile();
+      const curOffset = mobile ? mobileOffsets[currentSlideIndex] : [0, 0];
+      const tarOffset = mobile ? mobileOffsets[targetIndex] : [0, 0];
       shaderMaterial.uniforms.uTexture1.value = curTex;
       shaderMaterial.uniforms.uTexture2.value = tarTex;
       shaderMaterial.uniforms.uTexture1Size.value = curTex.userData.size;
       shaderMaterial.uniforms.uTexture2Size.value = tarTex.userData.size;
+      shaderMaterial.uniforms.uOffset1.value.set(curOffset[0], curOffset[1]);
+      shaderMaterial.uniforms.uOffset2.value.set(tarOffset[0], tarOffset[1]);
 
       updateContent(targetIndex);
       currentSlideIndex = targetIndex;
@@ -239,6 +254,7 @@ const Hero = () => {
             shaderMaterial.uniforms.uProgress.value = 0;
             shaderMaterial.uniforms.uTexture1.value = tarTex;
             shaderMaterial.uniforms.uTexture1Size.value = tarTex.userData.size;
+            shaderMaterial.uniforms.uOffset1.value.copy(shaderMaterial.uniforms.uOffset2.value);
             isTransitioning = false;
             safeStartTimer(100);
           },
@@ -294,6 +310,8 @@ const Hero = () => {
           uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
           uTexture1Size: { value: new THREE.Vector2(1, 1) },
           uTexture2Size: { value: new THREE.Vector2(1, 1) },
+          uOffset1: { value: new THREE.Vector2(0, 0) },
+          uOffset2: { value: new THREE.Vector2(0, 0) },
         },
         vertexShader,
         fragmentShader,
@@ -316,6 +334,10 @@ const Hero = () => {
         shaderMaterial.uniforms.uTexture2.value = slideTextures[1];
         shaderMaterial.uniforms.uTexture1Size.value = slideTextures[0].userData.size;
         shaderMaterial.uniforms.uTexture2Size.value = slideTextures[1].userData.size;
+        const mobile = isMobile();
+        const initOffset = mobile ? mobileOffsets[0] : [0, 0];
+        shaderMaterial.uniforms.uOffset1.value.set(initOffset[0], initOffset[1]);
+        shaderMaterial.uniforms.uOffset2.value.set(initOffset[0], initOffset[1]);
         texturesLoaded = true;
         sliderEnabled = true;
 
