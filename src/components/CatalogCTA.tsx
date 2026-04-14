@@ -5,7 +5,7 @@ const CatalogCTA = () => {
   const whatsappMessage = encodeURIComponent(
     "Olá! Vi que vocês têm mais de 300 modelos disponíveis e gostaria de conhecer mais opções para meu projeto."
   );
-  const whatsappUrl = `https://wa.me/5511959105205?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/5511978791851?text=${whatsappMessage}`;
 
   return (
     <section className="relative py-16 sm:py-24 overflow-hidden">

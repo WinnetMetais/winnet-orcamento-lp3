@@ -247,7 +247,7 @@ const ProductGallery = () => {
                       className="mt-auto bg-accent hover:bg-accent/90 text-accent-foreground"
                       asChild
                     >
-                      <a href={`https://wa.me/5511959105205?text=${whatsappMessage(selectedProduct.name)}`} target="_blank" rel="noopener noreferrer">
+                      <a href={`https://wa.me/5511978791851?text=${whatsappMessage(selectedProduct.name)}`} target="_blank" rel="noopener noreferrer">
                         Solicitar Orçamento <ArrowRight className="ml-2" />
                       </a>
                     </Button>
