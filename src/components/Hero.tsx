@@ -304,6 +304,8 @@ const Hero = () => {
           uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
           uTexture1Size: { value: new THREE.Vector2(1, 1) },
           uTexture2Size: { value: new THREE.Vector2(1, 1) },
+          uOffset1: { value: new THREE.Vector2(0, 0) },
+          uOffset2: { value: new THREE.Vector2(0, 0) },
         },
         vertexShader,
         fragmentShader,
