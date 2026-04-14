@@ -89,6 +89,15 @@ const Hero = () => {
     let animFrameId: number;
     let destroyed = false;
 
+    const isMobile = () => window.innerWidth < 768;
+    // Per-slide horizontal UV offsets for mobile [x, y]
+    const mobileOffsets: [number, number][] = [
+      [0, 0],       // Elegância em Inox (banheiro) - ok
+      [-0.15, 0],   // Ambientes Premium (lobby) - shift left to show lixeira
+      [-0.15, 0],   // Design Sofisticado (varanda) - shift left to show lixeira
+      [0, 0],       // Áreas Externas (piscina) - ok
+    ];
+
     const SLIDE_DURATION = 5000;
     const PROGRESS_INTERVAL = 50;
     const TRANSITION_DURATION = 2.5;
