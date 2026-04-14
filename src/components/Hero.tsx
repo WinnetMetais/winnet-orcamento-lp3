@@ -24,19 +24,20 @@ const fragmentShader = `
   uniform sampler2D uTexture1, uTexture2;
   uniform float uProgress;
   uniform vec2 uResolution, uTexture1Size, uTexture2Size;
+  uniform vec2 uOffset1, uOffset2;
   varying vec2 vUv;
 
-  vec2 getCoverUV(vec2 uv, vec2 textureSize) {
+  vec2 getCoverUV(vec2 uv, vec2 textureSize, vec2 uvOffset) {
     vec2 s = uResolution / textureSize;
     float scale = max(s.x, s.y);
     vec2 scaledSize = textureSize * scale;
     vec2 offset = (uResolution - scaledSize) * 0.5;
-    return (uv * uResolution - offset) / scaledSize;
+    return (uv * uResolution - offset) / scaledSize + uvOffset;
   }
 
   void main() {
-    vec2 uv1 = getCoverUV(vUv, uTexture1Size);
-    vec2 uv2 = getCoverUV(vUv, uTexture2Size);
+    vec2 uv1 = getCoverUV(vUv, uTexture1Size, uOffset1);
+    vec2 uv2 = getCoverUV(vUv, uTexture2Size, uOffset2);
     float maxR = length(uResolution) * 0.85;
     float br = uProgress * maxR;
     vec2 p = vUv * uResolution;
