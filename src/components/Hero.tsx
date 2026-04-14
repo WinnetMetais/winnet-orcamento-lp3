@@ -334,6 +334,10 @@ const Hero = () => {
         shaderMaterial.uniforms.uTexture2.value = slideTextures[1];
         shaderMaterial.uniforms.uTexture1Size.value = slideTextures[0].userData.size;
         shaderMaterial.uniforms.uTexture2Size.value = slideTextures[1].userData.size;
+        const mobile = isMobile();
+        const initOffset = mobile ? mobileOffsets[0] : [0, 0];
+        shaderMaterial.uniforms.uOffset1.value.set(initOffset[0], initOffset[1]);
+        shaderMaterial.uniforms.uOffset2.value.set(initOffset[0], initOffset[1]);
         texturesLoaded = true;
         sliderEnabled = true;
 
