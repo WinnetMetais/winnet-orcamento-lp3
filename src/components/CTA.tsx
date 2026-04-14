@@ -6,7 +6,7 @@ const CTA = () => {
   const whatsappMessage = encodeURIComponent(
     "Olá! Gostaria de solicitar um orçamento personalizado para meu hotel/condomínio/resort. Vim através da Landing Page Premium."
   );
-  const whatsappUrl = `https://wa.me/5511959105205?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/5511978791851?text=${whatsappMessage}`;
 
   return (
     <section className="py-24 bg-background relative overflow-hidden z-10">
@@ -62,8 +62,8 @@ const CTA = () => {
             <div className="flex flex-col items-center gap-6 text-muted-foreground sm:flex-row sm:justify-center sm:gap-12">
               <div className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-accent/70" />
-                <a href="tel:+5511959105205" className="hover:text-accent transition-colors">
-                  +55 (11) 95910-5205
+                <a href="tel:+5511978791851" className="hover:text-accent transition-colors">
+                  +55 (11) 97879-1851
                 </a>
               </div>
               <div className="flex items-center gap-2">
