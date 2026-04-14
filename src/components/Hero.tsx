@@ -92,10 +92,10 @@ const Hero = () => {
     const isMobile = () => window.innerWidth < 768;
     // Per-slide horizontal UV offsets for mobile [x, y]
     const mobileOffsets: [number, number][] = [
-      [0, 0],       // Elegância em Inox (banheiro) - ok
-      [-0.15, 0],   // Ambientes Premium (lobby) - shift left to show lixeira
-      [-0.15, 0],   // Design Sofisticado (varanda) - shift left to show lixeira
-      [0, 0],       // Áreas Externas (piscina) - ok
+      [0, 0],      // Elegância em Inox (banheiro) - ok
+      [0.15, 0],   // Ambientes Premium (lobby) - shift right to show lixeira inteira
+      [0.15, 0],   // Design Sofisticado (varanda) - shift right to show lixeira inteira
+      [0, 0],      // Áreas Externas (piscina) - ok
     ];
 
     const SLIDE_DURATION = 5000;
