@@ -227,10 +227,15 @@ const Hero = () => {
       if (!curTex || !tarTex) return;
 
       isTransitioning = true;
+      const mobile = isMobile();
+      const curOffset = mobile ? mobileOffsets[currentSlideIndex] : [0, 0];
+      const tarOffset = mobile ? mobileOffsets[targetIndex] : [0, 0];
       shaderMaterial.uniforms.uTexture1.value = curTex;
       shaderMaterial.uniforms.uTexture2.value = tarTex;
       shaderMaterial.uniforms.uTexture1Size.value = curTex.userData.size;
       shaderMaterial.uniforms.uTexture2Size.value = tarTex.userData.size;
+      shaderMaterial.uniforms.uOffset1.value.set(curOffset[0], curOffset[1]);
+      shaderMaterial.uniforms.uOffset2.value.set(tarOffset[0], tarOffset[1]);
 
       updateContent(targetIndex);
       currentSlideIndex = targetIndex;
