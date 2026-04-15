@@ -9,7 +9,7 @@ import ambienteHall from "@/assets/ambiente-hall.png";
 
 const ambientes = [
   { title: "Banheiros Premium", image: ambienteBanheiro },
-  { title: "Lobbies & Recepções", image: ambienteLobby },
+  { title: "Ambientes Externos", image: ambienteLobby },
   { title: "Varandas & Terraços", image: ambienteVaranda },
   { title: "Piscinas & Áreas Externas", image: ambientePiscina },
   { title: "Halls & Corredores", image: ambienteHall },
