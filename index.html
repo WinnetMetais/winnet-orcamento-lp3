@@ -35,9 +35,11 @@
     <!-- Early connection hints for critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     
-    <!-- Preload LCP Image -->
-    <link rel="preload" as="image" href="/assets/lixeira-elevador-BnKs7xJf.png" fetchpriority="high" />
+    <!-- Preload critical scripts for Hero -->
+    <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" />
+    <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" />
     
     <!-- Google Fonts - Non-blocking load -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
