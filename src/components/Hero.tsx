@@ -72,7 +72,6 @@ const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cleanupRef = useRef<(() => void) | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const cleanupRef = useRef<(() => void) | null>(null);
 
   const whatsappMessage = encodeURIComponent(
     "Olá! Vim através da Landing Page Premium e gostaria de solicitar um orçamento para meu hotel/condomínio/resort."
