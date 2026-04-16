@@ -408,20 +408,13 @@ const Hero = () => {
     <section className="relative z-0 h-[100svh] w-full overflow-hidden bg-background">
       <div ref={containerRef} className="relative h-full w-full">
         {/* Fallback image shown instantly while WebGL loads */}
-        {!isLoaded && (
-          <div className="absolute inset-0 z-10">
-            <img
-              src={heroBanheiro}
-              alt="Winnet Metais"
-              className="h-full w-full object-cover"
-              fetchPriority="high"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/80" />
-          </div>
-        )}
+        <div
+          className={`absolute inset-0 z-[1] transition-opacity duration-700 ${isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          style={{ backgroundImage: `url(${heroBanheiro})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        />
 
         {/* WebGL slider */}
-        <div className={`slider-wrapper absolute inset-0 transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="slider-wrapper absolute inset-0">
           <canvas className="webgl-canvas absolute inset-0 h-full w-full" />
 
           {/* Logo */}
