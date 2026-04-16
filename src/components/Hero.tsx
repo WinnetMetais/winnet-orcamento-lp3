@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import logoWinnet from "@/assets/logo-winnet.png";
@@ -71,6 +71,7 @@ const fragmentShader = `
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cleanupRef = useRef<(() => void) | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const whatsappMessage = encodeURIComponent(
     "Olá! Vim através da Landing Page Premium e gostaria de solicitar um orçamento para meu hotel/condomínio/resort."
@@ -284,8 +285,10 @@ const Hero = () => {
 
     const init = async () => {
       try {
-        await loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js", "gsap");
-        await loadScript("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js", "THREE");
+        await Promise.all([
+          loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js", "gsap"),
+          loadScript("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js", "THREE"),
+        ]);
       } catch (e) {
         console.error("Script load error:", e);
         return;
@@ -319,13 +322,12 @@ const Hero = () => {
 
       scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), shaderMaterial));
 
-      for (const s of slides) {
-        try {
-          slideTextures.push(await loadImageTexture(s.media));
-        } catch {
-          console.warn("Failed to load texture");
-        }
-      }
+      const textureResults = await Promise.allSettled(
+        slides.map(s => loadImageTexture(s.media))
+      );
+      slideTextures = textureResults
+        .filter((r): r is PromiseFulfilledResult<any> => r.status === "fulfilled")
+        .map(r => r.value);
 
       if (destroyed) return;
 
@@ -340,6 +342,7 @@ const Hero = () => {
         shaderMaterial.uniforms.uOffset2.value.set(initOffset[0], initOffset[1]);
         texturesLoaded = true;
         sliderEnabled = true;
+        setIsLoaded(true);
 
         const wrapper = containerRef.current?.querySelector(".slider-wrapper");
         wrapper?.classList.add("loaded");
@@ -404,8 +407,21 @@ const Hero = () => {
   return (
     <section className="relative z-0 h-[100svh] w-full overflow-hidden bg-background">
       <div ref={containerRef} className="relative h-full w-full">
+        {/* Fallback image shown instantly while WebGL loads */}
+        {!isLoaded && (
+          <div className="absolute inset-0 z-10">
+            <img
+              src={heroBanheiro}
+              alt="Winnet Metais"
+              className="h-full w-full object-cover"
+              fetchPriority="high"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/80" />
+          </div>
+        )}
+
         {/* WebGL slider */}
-        <div className="slider-wrapper absolute inset-0">
+        <div className={`slider-wrapper absolute inset-0 transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
           <canvas className="webgl-canvas absolute inset-0 h-full w-full" />
 
           {/* Logo */}
