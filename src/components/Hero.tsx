@@ -322,13 +322,12 @@ const Hero = () => {
 
       scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), shaderMaterial));
 
-      for (const s of slides) {
-        try {
-          slideTextures.push(await loadImageTexture(s.media));
-        } catch {
-          console.warn("Failed to load texture");
-        }
-      }
+      const textureResults = await Promise.allSettled(
+        slides.map(s => loadImageTexture(s.media))
+      );
+      slideTextures = textureResults
+        .filter((r): r is PromiseFulfilledResult<any> => r.status === "fulfilled")
+        .map(r => r.value);
 
       if (destroyed) return;
 
@@ -343,6 +342,7 @@ const Hero = () => {
         shaderMaterial.uniforms.uOffset2.value.set(initOffset[0], initOffset[1]);
         texturesLoaded = true;
         sliderEnabled = true;
+        setIsLoaded(true);
 
         const wrapper = containerRef.current?.querySelector(".slider-wrapper");
         wrapper?.classList.add("loaded");
