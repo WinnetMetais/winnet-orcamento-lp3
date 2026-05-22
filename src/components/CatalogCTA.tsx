@@ -3,7 +3,7 @@ import { ArrowRight, Package } from "lucide-react";
 
 const CatalogCTA = () => {
   const whatsappMessage = encodeURIComponent(
-    "Olá! Vi que vocês têm mais de 300 modelos disponíveis e gostaria de conhecer mais opções para meu projeto."
+    "Olá, Winnet Metais! Gostaria de acessar o catálogo completo com mais de 300 modelos e conhecer as opções ideais para o meu projeto. #LP3"
   );
   const whatsappUrl = `https://wa.me/5511978791851?text=${whatsappMessage}`;
 

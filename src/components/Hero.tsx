@@ -74,7 +74,7 @@ const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const whatsappMessage = encodeURIComponent(
-    "Olá! Vim através da Landing Page Premium e gostaria de solicitar um orçamento para meu hotel/condomínio/resort."
+    "Olá, Winnet Metais! Gostaria de solicitar um orçamento de soluções premium em aço inox para o meu empreendimento (hotel, condomínio ou resort). Aguardo o contato de um especialista. #LP3"
   );
   const whatsappUrl = `https://wa.me/5511978791851?text=${whatsappMessage}`;
 

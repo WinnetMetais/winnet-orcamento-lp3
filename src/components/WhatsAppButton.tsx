@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const WhatsAppButton = () => {
   const whatsappMessage = encodeURIComponent(
-    "Olá! Gostaria de mais informações sobre os produtos Winnet. Vim através da Landing Page Premium."
+    "Olá, Winnet Metais! Tenho interesse em conhecer melhor a linha de produtos em aço inox e gostaria de falar com um especialista. #LP3"
   );
   const whatsappUrl = `https://api.whatsapp.com/send?phone=5511978791851&text=${whatsappMessage}`;
 
