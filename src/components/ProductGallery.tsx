@@ -62,7 +62,7 @@ const ProductGallery = () => {
     : products.filter(p => p.category === filter || p.additionalCategories?.includes(filter));
 
   const whatsappMessage = (name: string) =>
-    encodeURIComponent(`Olá! Gostaria de solicitar um orçamento para: ${name}. Vim através da Landing Page Premium.`);
+    encodeURIComponent(`Olá, Winnet Metais! Tenho interesse no produto "${name}" e gostaria de receber um orçamento e mais informações técnicas. #LP3`);
 
   const handleNext = () => {
     if (!selectedProduct) return;

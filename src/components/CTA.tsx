@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const CTA = () => {
   const whatsappMessage = encodeURIComponent(
-    "Olá! Gostaria de solicitar um orçamento personalizado para meu hotel/condomínio/resort. Vim através da Landing Page Premium."
+    "Olá, Winnet Metais! Quero falar com um especialista e receber um orçamento personalizado em aço inox para o meu empreendimento. #LP3"
   );
   const whatsappUrl = `https://wa.me/5511978791851?text=${whatsappMessage}`;
 
